@@ -60,6 +60,7 @@
                       <th style="max-width: 60px; min-width: 60px">Tanggal Kembali</th>
                       <th style="max-width: 70px; min-width: 70px">Keterangan</th>
                       <th style="max-width: 70px; min-width: 70px">Status</th>
+                      <th style="max-width: 30px; min-width: 30px"></th>
                     </tr>
                   </thead>
                  
@@ -80,12 +81,16 @@
                       Sedang dipinjam 
                       Telah Dikembaliikan + Button Konfirmasi
                       Telah Kembali -->
-                        <a href="#" class="btn-xs btn-primary btn-icon-split">
+                        <a href="#" class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#confirmKembali">
                           <span class="icon text-white-50">
                             <i class="fas fa-check-circle"></i>
                           </span>
                           <span class="text">Konfirmasi</span>
                         </a>
+                      </td>
+                      <td style="max-width: 30px; min-width: 30px">
+                  
+                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
                       </td>
 
                     </tr>
@@ -100,8 +105,10 @@
                       <td style="max-width: 70px; min-width: 70px">
                       Telah Kembali
                       </td>
-
-                    </tr>
+                     <td style="max-width: 30px; min-width: 30px">
+                  
+                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
+                      </td>
                   
 
                     <tr>
@@ -114,19 +121,17 @@
                       <td style="max-width: 70px; min-width: 70px">Ban Bocor</td>
                       <td style="max-width: 70px; min-width: 70px">
                       Telah Dipinjam
-                      <!-- macam-macam status:
-                      Telah Dipinjam + Button Konfirmasi
-                      Sedang dipinjam 
-                      Telah Dikembaliikan + Button Konfirmasi
-                      Telah Kembali -->
-                        <a href="#" class="btn-xs btn-primary btn-icon-split">
+                       <a href="#" class="btn-sm btn-primary btn-icon-split"  data-toggle="modal" data-target="#confirmPinjam">
                           <span class="icon text-white-50">
                             <i class="fas fa-check-circle"></i>
                           </span>
                           <span class="text">Konfirmasi</span>
                         </a>
                       </td>
-
+                      <td style="max-width: 30px; min-width: 30px">
+                  
+                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
+                      </td>
                     </tr>
 
                     <tr>
@@ -139,6 +144,10 @@
                       <td style="max-width: 70px; min-width: 70px">Ban Bocor</td>
                       <td style="max-width: 70px; min-width: 70px">
                       Sedang Dipinjam
+                      </td>
+                       <td style="max-width: 30px; min-width: 30px">
+                  
+                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
                       </td>
 
                     </tr>
@@ -248,6 +257,61 @@
           </div>
         </div>
 
+       <!-- Modal - Hapus -->
+
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-circle" style="color: red"> </i>Perhatian</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">Apakah anda yakin menghapus data peminjaman ini?</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+              <a id="btn-delete" class="btn btn-danger" href="#">Hapus</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="confirmPinjam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-check-circle" style="color: blue"></i></i>Konfirmasi Peminjaman</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">Apakah peminjam mengetahui peminjaman ini?</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+              <a id="btn-delete" class="btn btn-danger" href="#">Ya</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div class="modal fade" id="confirmKembali" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-check-circle" style="color: blue"></i>Konfirmasi Pengembalian</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">Apakah sepeda telah anda terima di POS?</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+              <a id="btn-delete" class="btn btn-danger" href="#">Ya</a>
+            </div>
+          </div>
+        </div>
+      </div>
 <footer>
   <?php require_once 'footer.php'  ?> 
 </footer>
