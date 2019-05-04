@@ -14,14 +14,20 @@ class CreateSepedasTable extends Migration
     public function up()
     {
         Schema::create('sepedas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            // $table->bigIncrements('id');
+            $table->char('id',5);
             $table->char('pos_id',5);
             $table->string('sepedas_model');
             $table->date('sepedas_tanggal_beli');
             $table->string('sepedas_is_available',5);
-            $table->timestamps();
+            $table->primary('id');
+            // $table->timestamps();
             // $table->integer('jabatan_id')->reference('id')->on('jabatan')->unsigned()->nullable();
         });
+
+        // Schema::table('sepedas', function($table) {
+        //     $table->foreign('pos_id')->references('id')->on('pos');
+        // });
     }
 
     /**

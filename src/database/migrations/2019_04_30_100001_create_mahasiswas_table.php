@@ -14,13 +14,15 @@ class CreateMahasiswasTable extends Migration
     public function up()
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->engine = 'InnoDB';
+            // $table->bigIncrements('id');
             $table->char('mahasiswas_nrp',14)->unique();
             $table->string('mahasiswas_nama');
             $table->string('mahasiswas_password');
             $table->char('mahasiswas_nomorhp',13);
             $table->string('mahasiswas_alamat');
             $table->string('mahasiswas_departemen');
+            $table->primary('mahasiswas_nrp');
             // $table->timestamps();
         });
     }

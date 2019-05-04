@@ -14,13 +14,19 @@ class CreatePosTable extends Migration
     public function up()
     {
         Schema::create('pos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('petugas_id');
+            // $table->bigIncrements('id');
+            $table->char('id',5);
+            $table->char('petugas_id',5);
             $table->string('pos_lokasi');
             $table->string('pos_is_active');
             $table->integer('pos_jumlah_sepeda');
-            $table->timestamps();
+            $table->primary('id');
+            // $table->timestamps();
         });
+
+        // Schema::table('pos', function($table) {
+        //     $table->foreign('petugas_id')->references('id')->on('petugas');
+        // });
     }
 
     /**

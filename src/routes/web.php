@@ -11,10 +11,41 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('/form-pinjam', function () {
-    return view('form-pinjam');
-});
+Route::get('/', 'HomeController@index')->name('dashboard.index');
+Route::get('/form-pinjam', 'PeminjamanController@index')->name('peminjaman.index');
+Route::post('/form-pinjam', 'PeminjamanController@index')->name('peminjaman.index');
 Route::get('/loginmhs', function () {
     return view('loginmhs');
 });
+Route::post('/loginmhs', function () {
+    return view('loginmhs');
+});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+Route::get('/data-peminjaman', function () {
+    return view('data-peminjaman');
+});
+Route::get('/manage-user', function () {
+    return view('manage-user');
+});
+Route::get('/data-cycle', function () {
+    return view('manage-cycle');
+});
+Route::get('/notifikasi', function () {
+    return view('notifikasi');
+});
+// Route::get('/konfirmasi', function () {
+//     return view('form');
+// });
+
+// Route::group(['middleware' => ['web']], function () {
+//     Route::get('login', 'UserLoginController@getUserLogin');
+//     Route::post('login', ['as'=>'user.auth','uses'=>'UserLoginController@userAuth']);
+//     Route::get('admin/login', 'AdminLoginController@getAdminLogin');
+//     Route::post('admin/login', ['as'=>'admin.auth','uses'=>'AdminLoginController@adminAuth']);
+    
+//     Route::group(['middleware' => ['admin']], function () {
+//         Route::get('admin/dashboard', ['as'=>'admin.dashboard','uses'=>'AdminController@dashboard']);
+//     });
+// });

@@ -14,15 +14,22 @@ class CreateNotifikasisTable extends Migration
     public function up()
     {
         Schema::create('notifikasis', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            // $table->bigIncrements('id');
+            $table->increments('id',11);
             $table->char('petugas_id',5);
-            $table->char('mahasiswas_id',14);
+            $table->char('notifikasi_user',14);
             $table->string('notifikasis_isi');
             $table->timestamp('notifikasis_waktu_kirim');
             $table->tinyInteger('notifikasis_status');
+            // $table->primary('id');
             // $table->char('notifikasi_petugas',5);
             // $table->timestamps();
         });
+
+        // Schema::table('notifikasis', function($table) {
+        //     $table->foreign('petugas_id')->references('id')->on('petugas');
+        //     // $table->foreign('mahasiswas_id')->references('id')->on('mahasiswas');
+        // });
     }
 
     /**

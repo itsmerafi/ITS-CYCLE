@@ -6,7 +6,7 @@
 body{
   background-image: linear-gradient(white, orange);
 }
-.main-section {
+.main-section { 
   margin: 0 auto;
   margin-top: 80px;
   padding: 0;
@@ -18,7 +18,6 @@ body{
   border-width: 20px;
   float: right;
 }
-
 
 .form-group input{
 
@@ -49,11 +48,13 @@ img{
   <title>Form Pinjam</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  {{-- <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> --}}
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+  {{-- <link href="../css/sb-admin-2.min.css" rel="stylesheet"> --}}
 
 </head>
 
@@ -69,7 +70,8 @@ img{
 
         <div class="row" >
           <div class="col-4" >
-            <img src="../img/Home/stab1.png">
+
+            <img src="{{asset('img/Home/stab1.png')}}">
           </div>
           <div class="col-8 " style="margin-top: 20px">
 
@@ -78,7 +80,8 @@ img{
           </div>
         </div>
           <p> Informasi Sepeda </p>
-          <form action="homepage.html">
+          <form action="{{ url('/dashboard')}}">
+            {{-- <form action="homepage.html"> --}}
             <div class="form-group">
               <label>ID Sepeda</label>
               <input type="text" class="form-control"  value="SPD01" disabled>
@@ -95,7 +98,7 @@ img{
 
             <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">PINJAM</button>
           </form>
-          <a href="/">Kembali<<</a>
+          <a href="{{ url('/')}}">Kembali<<</a>
         </div>
 
       </div>
@@ -106,14 +109,16 @@ img{
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  {{-- <link href="{{ asset('vendor/jquery/jquery.min.js') }}" rel="stylesheet"> --}}
+  <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../js/sb-admin-2.min.js"></script>
+
+  <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
 
 </body>
 

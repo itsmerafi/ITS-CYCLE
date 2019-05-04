@@ -14,7 +14,8 @@ class CreatePeminjamanTable extends Migration
     public function up()
     {
         Schema::create('peminjaman', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            // $table->bigIncrements('id');
+            $table->increments('id',11);
             $table->char('mahasiswas_id',14);
             $table->char('petugas_id',5);
             $table->char('sepedas_id',5);
@@ -23,8 +24,16 @@ class CreatePeminjamanTable extends Migration
             $table->timestamp('peminjaman_tanggal_mengembalikan')->nullable();
             $table->string('peminjaman_keterangan');
             $table->string('peminjaman_status');
+            // $table->primary('id');
             // $table->timestamps();
         });
+
+        // Schema::table('peminjaman', function($table) {
+        //     $table->foreign('mahasiswas_id')->references('id')->on('mahasiswas');
+        //     $table->foreign('petugas_id')->references('id')->on('petugas');
+        //     $table->foreign('pos_id')->references('id')->on('pos');
+        //     $table->foreign('sepedas_id')->references('id')->on('sepedas');
+        // });
     }
 
     /**
