@@ -48,7 +48,7 @@ img{
   <title>Form Pinjam</title>
 
   <!-- Custom fonts for this template-->
-  <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/all.min.css') }}" rel="stylesheet" type="text/css">
   {{-- <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> --}}
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -76,20 +76,24 @@ img{
 
           <h3>SELAMAT DATANG DI <strong>ITS-CYCLE</strong></h3>
           <p>Sistem Informasi Peminjaman Sepeda ITS
-          <form action="{{url('/')}}" method="post">
-            {{ csrf_field() }}
-            <div class="form-group">
-              <input type="email" class="form-control" placeholder="Enter NRP">
+          <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
+                        <div class="form-group">
+              <input name="users_nomor_id" type="text" class="form-control" placeholder="Enter NRP">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="Enter Password">
+              <input name="password" type="password" class="form-control" placeholder="Enter Password">
             </div>
             <button type="submit" class="btn btn-success" style="margin: 10px">Login</button>
-          </form>
+                    </form>
         </div>
 
         <div class="col-12 forgot ">
-          <a href="#" data-toggle="modal" data-target="#penggunabaru">Belum Punya Akun?</a>
+          
+          <a href="{{ route('register') }}">{{ __('Belum Punya Akun?') }}</a>
+          
+          {{-- <a href="#" data-toggle="modal" data-target="#penggunabaru">Belum Punya Akun?</a> --}}
           <strong>|</strong>
           <a type="" href="dashboard.php"> ADMIN SITE </a>
         </div>
@@ -103,11 +107,11 @@ img{
 
   <!-- Bootstrap core JavaScript-->
   {{-- <link href="{{ asset('vendor/jquery/jquery.min.js') }}" rel="stylesheet"> --}}
-  <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.easing.min.js') }}"></script>
 
   <!-- Custom scripts for all pages-->
 

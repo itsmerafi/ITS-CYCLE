@@ -265,6 +265,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {{-- <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form> --}}
                                     <div class="modal fade" id="logout">
                                         <div class="modal-dialog modal-dialog-centered " >
                                             <div class="modal-content">
@@ -272,7 +281,8 @@
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">LOGOUT</h4>
                                                     <!-- Modal body -->
-                                                    <form action="{{url('/loginmhs')}}" method="get">
+                                                    <form action="{{ route('logout') }}" method="POST">
+                                                        @csrf
                                                         <div class="modal-body" style="padding:1rem">
                                                             <div>
                                                                 <p style="font-size: 20px">Apakah anda yakin ingin keluar ?</p>
