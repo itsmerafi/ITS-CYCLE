@@ -14,48 +14,43 @@ Auth::routes();
 
 
 # USER ROUTES
-Route::middleware(['auth'])->group(function() {
-    Route::get('/', 'HomeController@index')->name('dashboard.index');
-	Route::get('/form-pinjam', 'PeminjamanController@index')->name('peminjaman.index');
-	Route::post('/form-pinjam', 'PeminjamanController@index')->name('peminjaman.index');
-	Route::get('/dashboard', function () {
-	    return view('dashboard');
-	});
-	Route::get('/data-peminjaman', function () {
-	    return view('data-peminjaman');
-	});
-	Route::get('/loginmhs', function () {
-	    return view('loginmhs');
-	});
-	Route::post('/loginmhs', function () {
-	    return view('loginmhs');
-	});
-	Route::get('/manage-user', function () {
-	    return view('manage-user');
-	});
-	Route::get('/data-cycle', function () {
-	    return view('manage-cycle');
-	});
-	Route::get('/notifikasi', function () {
-	    return view('notifikasi');
-	});
-	Route::get('/konfirmasi', function () {
-	    return view('form');
-	});
-});
+// Route::middleware(['auth'])->group(function() {
+//     Route::get('/', 'HomeController@index')->name('index');
 
-#ADMIN
+// 	Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
 
-// Route::group(['middleware' => ['web']], function () {
-//     Route::get('login', 'UserLoginController@getUserLogin');
-//     Route::post('login', ['as'=>'user.auth','uses'=>'UserLoginController@userAuth']);
-//     Route::get('admin/login', 'AdminLoginController@getAdminLogin');
-//     Route::post('admin/login', ['as'=>'admin.auth','uses'=>'AdminLoginController@adminAuth']);
-    
-//     Route::group(['middleware' => ['admin']], function () {
-//         Route::get('admin/dashboard', ['as'=>'admin.dashboard','uses'=>'AdminController@dashboard']);
-//     });
+// 	Route::get('/data-peminjaman','PeminjamanController@index')->name('peminjaman.index');
+// 	Route::get('/form-peminjaman','PeminjamanController@form')->name('peminjaman.form');
+// 	Route::post('/form-peminjaman','PeminjamanController@form')->name('peminjaman.form');
+
+// 	Route::get('/data-sepeda','SepedaController@index')->name('sepeda.index');
+
+// 	Route::get('/data-user','UserController@index')->name('user.index');
+	
+// 	Route::get('/notifikasi','NotifikasiController@index')->name('notifikasi.index');
+
 // });
 
+// Route::middleware(['admin'])->group(function() {
+
+// 	Route::get('/admin', function () {
+// 	    return view('home');
+// 	});
+// });
 
 // Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/', 'HomeController@index')->name('index');
+
+Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
+
+Route::get('/data-peminjaman','PeminjamanController@index')->name('peminjaman.index');
+Route::get('/form-peminjaman','PeminjamanController@form')->name('peminjaman.form');
+Route::post('/form-peminjaman','PeminjamanController@form')->name('peminjaman.form');
+
+Route::get('/data-sepeda','SepedaController@index')->name('sepeda.index');
+
+Route::get('/data-user','UserController@index')->name('user.index');
+
+Route::get('/notifikasi','NotifikasiController@index')->name('notifikasi.index');

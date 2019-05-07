@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- HEAD -->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +22,9 @@
   <link href="{{asset('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 <!--?php require_once 'header.blade.php' ?> -->
 </head>
+<!-- END HEAD -->
 
+<!-- BODY -->
 <body id="page-top">  
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -45,7 +48,7 @@
         </a>
       </li>
       <hr class="sidebar-divider my-0">
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="{{ url('/data-peminjaman')}}">
           <i class="fas fa-database"></i>
           <span>Data Peminjaman </span>
@@ -53,31 +56,31 @@
       </li>
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Tables -->
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ url('/manage-user')}}">
+      <li class="nav-item ">
+        <a class="nav-link" href="{{ url('/data-user')}}">
           <i class="fas fa-users-cog"></i>
           <span>Manajemen Pengguna</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ url('/data-cycle')}}">
+      <li class="nav-item ">
+        <a class="nav-link" href="{{ url('/data-sepeda')}}">
           <i class="fas fa-bicycle"></i>
           <span>Manajemen Sepeda</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="{{ url('/notifikasi')}}">
         <i class="fas fa-bell"></i>
           <span>Notifikasi</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
-      <li  class="nav-item active">
+      <li  class="nav-item">
         <a class="nav-link " href="" data-toggle="modal" data-target="#logoutModal">
         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-        Logout
+        <span>Logout</span>
         </a>
       </li>
       <!-- Divider -->
@@ -204,61 +207,30 @@
                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
                   <thead>
                     <tr>
+                      <th style="max-width: 10px; min-width: 10px">NO</th>
                       <th style="max-width: 10px; min-width: 10px">POS</th>
                       <th style="max-width: 50px; min-width: 50px">STATUS</th>
-                      <th style="max-width: 20px; min-width: 20px">PETUGAS</th>
-                      <th style="max-width: 80px; min-width: 80px">SEPEDA TERSEDIA</th>
-                     
+                      <th style="max-width: 80px; min-width: 80px">PETUGAS</th>
+                      <th style="max-width: 20px; min-width: 20px">SEPEDA TERSEDIA</th>       
                     </tr>
                   </thead>
-                 
+
                   <tbody>
-                  
+                    <?php $x=1; ?>
+                    @foreach($data as $key => $datas)
                     <tr>
-                      <td style="max-width: 10px; min-width: 10px">1 - Pintu Utama</td>
-                      <td style="max-width: 50px; min-width: 50px">AKTIF</td>
-                      <td style="max-width: 20px; min-width: 20px">Muhammad Arrafi</td>
-                      <td style="max-width: 80px; min-width: 80px">10/25</td>
-                      
+                      <td style="max-width: 10px; min-width: 10px"><?php echo $x; $x=$x+1; ?></td>
+                      <td style="max-width: 10px; min-width: 10px">{{$datas->pos_lokasi}}</td>
+                      <td style="max-width: 50px; min-width: 50px">{{$datas->pos_is_active}}</td>
+                      <td style="max-width: 80px; min-width: 80px">{{$datas->petugas->users_nama}}</td>
+                      <td style="max-width: 20px; min-width: 20px">{{$datas->pos_jumlah_sepeda}}</td>
                     </tr>
-                    <tr>
-                      <td style="max-width: 10px; min-width: 10px">2 - Asrama</td>
-                      <td style="max-width: 50px; min-width: 50px">AKTIF</td>
-                      <td style="max-width: 20px; min-width: 20px">Muhammad Arrafi</td>
-                      <td style="max-width: 80px; min-width: 80px">0/25</td>
-                      
-                    </tr>
-                    <tr>
-                      <td style="max-width: 10px; min-width: 10px">3 - Pintu Keluar ITS Sakinah</td>
-                      <td style="max-width: 50px; min-width: 50px">NON-AKTIF</td>
-                      <td style="max-width: 20px; min-width: 20px">-</td>
-                      <td style="max-width: 80px; min-width: 80px">15/25</td>
-                      
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-
-          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                  <a class="btn btn-primary" href="../login.html">Logout</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
         <!-- /.container-fluid -->
 
@@ -272,6 +244,27 @@
             <span>Copyright &copy; ITS CYCLE 2019</span>
           </div>
         </div>
+
+        <a class="scroll-to-top rounded" href="../#page-top">
+          <i class="fas fa-angle-up"></i>
+        </a>
+        {{-- <script src="../vendor/jquery/jquery.min.js"></script> --}}
+        {{-- <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="{{ asset('js/jquery.easing.min.js') }}"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+        <!-- Page level plugins -->
+        <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
       </footer>
       <!-- End of Footer -->
 
@@ -281,36 +274,55 @@
   </div>
   <!-- End of Page Wrapper -->
 
-
   <!-- Bootstrap core JavaScript-->
   
 </body>
+<!-- END BODY -->
 
 
+<!-- MODAL -->
+
+<!-- MODAL LOGOUT-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="../login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--END MODAL LOGOUT-->
+
+<!-- MODAL ADD USER-->
 <div class="modal fade" id="adduser" tabindex="-1" role="dialog"  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h3>Tambah User</h3>
       </div>
-
       <div class="modal-body" style="padding-left: 0px">
         <form action="#" method="post" >     
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >NRP</strong><span style="color: red">*</span></label>
             </div>
-
             <div class="col-8">
               <input type="text" name="" class="form-control" placeholder="Contoh : 0511164000xxxx">
             </div>
-
           </div>
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >NAMA</strong><span style="color: red">*</span></label>
             </div>
-
             <div class="col-8">
               <input type="text" name="" class="form-control" placeholder="Nama Pengguna">
             </div>  
@@ -319,7 +331,6 @@
             <div class="col-3">
               <label class=""><strong >No. HP</strong><span style="color: red">*</span></label>
             </div>
-
             <div class="col-8">
               <input type="text" name="" class="form-control" placeholder="Contoh : 0877xxxxxxxx">
             </div>
@@ -328,7 +339,6 @@
             <div class="col-3">
               <label class=""><strong >Alamat Surabaya</strong><span style="color: red">*</span></label>
             </div>
-
             <div class="col-8">
               <input type="text" name="" class="form-control">
             </div>
@@ -346,9 +356,7 @@
               </select>                          
             </div>
           </div>                     
-
-          <div style="text-align: right; margin:10px ; margin-right: 40px">
-              
+          <div style="text-align: right; margin:10px ; margin-right: 40px">   
             <button id="btnSubmit" type="submit" class="btn btn-primary btn-hero " name="btnSubmit" >
               <span class="fa fa-plus-circle" aria-hidden="true"></span>  
               KIRIM
@@ -359,49 +367,6 @@
     </div>
   </div>
 </div>
+<!-- END MODAL ADD USER-->
 
-<footer>
-  <!-- Logout Modal-->
-  {{-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="../login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div> --}}
-  
-  <!--?php require_once 'footer.php'  ?---> 
-    <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="../#page-top">
-  <i class="fas fa-angle-up"></i>
-  </a>
-  {{-- <script src="../vendor/jquery/jquery.min.js"></script> --}}
-  {{-- <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
-  <script src="{{ asset('js/jquery.min.js') }}"></script>
-  <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="{{ asset('js/jquery.easing.min.js') }}"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-
-  <!-- Page level plugins -->
-  <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
-  
-</footer>
 </html>

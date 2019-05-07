@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
         //     $table->timestamps();
         // });
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            // $table->bigIncrements('id');
             $table->string('users_nama');
             $table->string('users_nomor_id')->unique();
             // $table->timestamp('email_verified_at')->nullable();
@@ -34,6 +34,7 @@ class CreateUsersTable extends Migration
             $table->integer('isAdmin')->default(0);
             $table->rememberToken();
             $table->timestamps();
+            $table->primary('users_nomor_id');
         });
     }
 

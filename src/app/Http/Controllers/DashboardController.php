@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pos;
+use App\User;
 
-class PeminjamanController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,9 @@ class PeminjamanController extends Controller
     public function index()
     {
         //
-        return view('data-peminjaman');
+        $data = Pos::orderBy('pos_is_active')->get();
+
+        return view('dashboard',compact('data'));
     }
 
     /**
@@ -81,9 +85,5 @@ class PeminjamanController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function form(){
-        return view('form-pinjam');
     }
 }

@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -70,6 +70,7 @@ class RegisterController extends Controller
             'users_nomorhp' => $data['users_nomorhp'],
             'users_alamat' => $data['users_alamat'],
             'users_departemen'=> $data['users_departemen'],
+            'isAdmin' => User::DEFAULT_TYPE,
         ]);
     }
 }

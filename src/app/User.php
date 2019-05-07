@@ -5,9 +5,14 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+
+// class User extends Model
 
 class User extends Authenticatable
 {
+    const ADMIN_TYPE = 1;
+    const DEFAULT_TYPE = 0;
     use Notifiable;
 
     /**
@@ -16,8 +21,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'users_nama', 'users_nomor_id', 'users_nomorhp','users_alamat','users_departemen','isAdmin','password'
+        'users_nama','users_nomor_id', 'users_nomorhp','users_alamat','users_departemen','isAdmin','password'
     ];
+
+
+    protected $primaryKey = 'users_nomor_id';
+    public $incrementing = false;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,4 +45,19 @@ class User extends Authenticatable
 //     protected $casts = [
 //         'email_verified_at' => 'datetime',
 //     ];
+
+    public function Admin()    {        
+        return $this->isAdmin === self::ADMIN_TYPE;    
+    }
+
+    public function pos()
+    {
+        return $this->hasOne('App\Pos');
+    }
 }
+
+// class User extends Eloquent {
+
+//     protected $primaryKey = 'users_nomor_id';
+
+// }

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sepeda;
 
-class PeminjamanController extends Controller
+class SepedaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,10 @@ class PeminjamanController extends Controller
     public function index()
     {
         //
-        return view('data-peminjaman');
+        $data = Sepeda::orderBy('pos_id')->get();
+        // dd($data);
+
+        return view('manage-cycle',compact('data'));
     }
 
     /**
@@ -81,9 +85,5 @@ class PeminjamanController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function form(){
-        return view('form-pinjam');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PeminjamanController extends Controller
+class NotifikasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PeminjamanController extends Controller
     public function index()
     {
         //
-        return view('data-peminjaman');
+        return view('notifikasi');
     }
 
     /**
@@ -81,9 +81,5 @@ class PeminjamanController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function form(){
-        return view('form-pinjam');
     }
 }

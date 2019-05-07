@@ -15,11 +15,10 @@ class CreatePeminjamanTable extends Migration
     {
         Schema::create('peminjaman', function (Blueprint $table) {
             // $table->bigIncrements('id');
-            $table->increments('id',11);
-            $table->char('mahasiswas_id',14);
-            $table->char('petugas_id',5);
-            $table->char('sepedas_id',5);
-            $table->char('pos_id',5);
+            // $table->increments('id',11);
+            $table->string('mahasiswas_id');
+            $table->string('petugas_id');
+            $table->integer('pos_id')->reference('id')->on('pos');
             $table->timestamp('peminjaman_tanggal_meminjam')->nullable();
             $table->timestamp('peminjaman_tanggal_mengembalikan')->nullable();
             $table->string('peminjaman_keterangan');

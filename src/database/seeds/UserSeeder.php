@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
 	        	// 'id' => 'PTG0'.$index,
 	        	// 'pos_id' => $faker->randomDigitNotNull,
 	            'users_nama' => $faker->name,
-	            'users_nomor_id' => '05111640000'.$index,
+	            'users_nomor_id' => '0511164000000'.$index,
 	            'password' => bcrypt('12345678'),
 	            'users_nomorhp' => '08134567890'.$index,
 	            'users_alamat' => $faker->address,

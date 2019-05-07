@@ -16,7 +16,7 @@ class CreateSepedasTable extends Migration
         Schema::create('sepedas', function (Blueprint $table) {
             // $table->bigIncrements('id');
             $table->char('id',5);
-            $table->char('pos_id',5);
+            $table->integer('pos_id')->reference('id')->on('pos')->unsigned();
             $table->string('sepedas_model');
             $table->date('sepedas_tanggal_beli');
             $table->string('sepedas_is_available',5);

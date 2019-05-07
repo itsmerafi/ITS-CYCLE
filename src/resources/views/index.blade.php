@@ -248,7 +248,7 @@
                                                     <h4 class="modal-title">PEMINJAMAN</h4>
                                                 </div>
                                                 <!-- Modal body -->
-                                                <form action="{{url('/form-pinjam')}}" method="post">
+                                                <form action="{{url('/form-peminjaman')}}" method="post">
                                                     {{ csrf_field() }}
                                                     <div class="modal-body" style="padding:1rem">
                                                        <label>ID SEPEDA</label>
