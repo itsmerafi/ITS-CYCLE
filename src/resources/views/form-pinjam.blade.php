@@ -80,8 +80,10 @@ img{
           </div>
         </div>
           <p> Informasi Sepeda </p>
-          <form action="{{ url('/dashboard')}}">
-            {{-- <form action="homepage.html"> --}}
+          {{-- <form action="{{ url('/dashboard')}}"> --}}
+          <form action="{{ route('peminjaman.store') }}" method="POST">
+            @csrf
+
             <div class="form-group">
               <label>ID Sepeda</label>
               <input type="text" class="form-control"  value="SPD01" disabled>

@@ -25,15 +25,6 @@
     <script src="{{asset('js/Home/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script> 
 
     
-    <!--Theme custom css -->
-    {{-- <link rel="stylesheet" href="../css/Home/style.css"  > --}}
-    
-    {{-- <link rel="stylesheet" href="../css/Home/responsive.css"  > --}}
-
-
-    {{-- <script src="../js/Home/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script> --}}
-    {{-- <script src="{{asset('js/Home/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script> --}}
-    
 
 </head>
 
@@ -240,66 +231,6 @@
                                             </div>
                                         </div>
                                     </section>  <!-- End of contact section -->
-                                    <div class="modal fade" id="peminjaman">
-                                        <div class="modal-dialog modal-dialog-centered modal-sm">
-                                            <div class="modal-content">
-                                                <!-- Modal Header -->
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">PEMINJAMAN</h4>
-                                                </div>
-                                                <!-- Modal body -->
-                                                <form action="{{url('/form-peminjaman')}}" method="post">
-                                                    {{ csrf_field() }}
-                                                    <div class="modal-body" style="padding:1rem">
-                                                       <label>ID SEPEDA</label>
-                                                       <input class="form-control" type="text" name="id_sepeda">
-                                                    </div>
-                                                    <!-- Modal footer -->
-                                                    <div>                  
-                                                        <div class="row" align="center" >
-                                                            <button type="button" data-dismiss="modal"  class="btn-sm" style="background-color: grey  ">BATAL</button>
-                                                            <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">LANJUT</button>
-                                                       </div>
-                                                    </div> 
-                                                </form>  
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{-- <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form> --}}
-                                    <div class="modal fade" id="logout">
-                                        <div class="modal-dialog modal-dialog-centered " >
-                                            <div class="modal-content">
-                                                <!-- Modal Header -->
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">LOGOUT</h4>
-                                                    <!-- Modal body -->
-                                                    <form action="{{ route('logout') }}" method="POST">
-                                                        @csrf
-                                                        <div class="modal-body" style="padding:1rem">
-                                                            <div>
-                                                                <p style="font-size: 20px">Apakah anda yakin ingin keluar ?</p>
-                                                            </div>
-                                                            <!-- Modal footer -->
-                                                        </div>
-                                                        <div class="modal-footer"></div>
-                                                        <div class="row" align="center" >
-                                                            <button type="button" data-dismiss="modal"  class="btn-sm" style="background-color: grey  ">BATAL</button>
-                                                            <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">Lanjut </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                {{-- </form> --}}
-                                            </div>
-                                        </div>
-                                    </div>
                                     <!-- START SCROLL TO TOP  -->
                                     <div class="scrollup">
                                         <a href="#"><i class="fa fa-chevron-up"></i></a>
@@ -334,4 +265,67 @@
 {{-- <script src="../js/Home/plugins.js" /> "></script>
 <script src="../js/Home/main.js" /> "></script> --}}
 </body>
+
+<div class="modal fade" id="peminjaman">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">PEMINJAMAN</h4>
+            </div>
+            <!-- Modal body -->
+            <form action="{{ route('peminjaman.store') }}" method="post">
+                {{ csrf_field() }}
+                <div class="modal-body" style="padding:1rem">
+                   <label>ID SEPEDA</label>
+                   <input class="form-control" type="text" name="id_sepeda">
+                </div>
+                <!-- Modal footer -->
+                <div>                  
+                    <div class="row" align="center" >
+                        <button type="button" data-dismiss="modal"  class="btn-sm" style="background-color: grey  ">BATAL</button>
+                        <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">LANJUT</button>
+                   </div>
+                </div> 
+            </form>  
+        </div>
+    </div>
+</div>
+{{-- <a class="dropdown-item" href="{{ route('logout') }}"
+   onclick="event.preventDefault();
+                 document.getElementById('logout-form').submit();">
+    {{ __('Logout') }}
+</a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form> --}}
+<div class="modal fade" id="logout">
+    <div class="modal-dialog modal-dialog-centered " >
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">LOGOUT</h4>
+                <!-- Modal body -->
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <div class="modal-body" style="padding:1rem">
+                        <div>
+                            <p style="font-size: 20px">Apakah anda yakin ingin keluar ?</p>
+                        </div>
+                        <!-- Modal footer -->
+                    </div>
+                    <div class="modal-footer"></div>
+                    <div class="row" align="center" >
+                        <button type="button" data-dismiss="modal"  class="btn-sm" style="background-color: grey  ">BATAL</button>
+                        <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">Lanjut </button>
+                    </div>
+                </form>
+            </div>
+            {{-- </form> --}}
+        </div>
+    </div>
+</div>
+
+
 </html>

@@ -28,7 +28,7 @@ class Admin
         if(auth()->user()->Admin()) {
             return $next($request);
         }
-        return redirect('/admin');
+        return redirect('/hak');
     }
 
 

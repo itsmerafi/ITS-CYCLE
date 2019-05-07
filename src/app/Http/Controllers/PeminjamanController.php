@@ -25,6 +25,8 @@ class PeminjamanController extends Controller
     public function create()
     {
         //
+        // return view('form-pinjam');
+
     }
 
     /**
@@ -36,6 +38,7 @@ class PeminjamanController extends Controller
     public function store(Request $request)
     {
         //
+        return view('form-pinjam');
     }
 
     /**
@@ -83,7 +86,7 @@ class PeminjamanController extends Controller
         //
     }
 
-    public function form(){
-        return view('form-pinjam');
-    }
+    // public function form(){
+    //     return view('form-pinjam');
+    // }
 }
