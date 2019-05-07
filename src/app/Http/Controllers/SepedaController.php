@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sepeda;
+use App\Pos;
 
 class SepedaController extends Controller
 {
@@ -16,9 +17,10 @@ class SepedaController extends Controller
     {
         //
         $data = Sepeda::orderBy('pos_id')->get();
+        $pos = Pos::get();
         // dd($data);
 
-        return view('manage-cycle',compact('data'));
+        return view('manage-cycle',compact('data','pos'));
     }
 
     /**

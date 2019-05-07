@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Departemen;
 
 class UserController extends Controller
 {
@@ -16,9 +17,10 @@ class UserController extends Controller
     {
         //
         $data = User::where('isAdmin',0)->orderBy('users_nomor_id')->get();
-        // dd($data);
+        $dep = Departemen::get();
+        // dd($dep);
 
-        return view('manage-user',compact('data'));
+        return view('manage-user',compact('data','dep'));
     }
 
     /**

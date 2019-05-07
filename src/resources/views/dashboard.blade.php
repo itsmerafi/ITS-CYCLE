@@ -72,15 +72,15 @@
       <hr class="sidebar-divider my-0">
       <li class="nav-item ">
         <a class="nav-link" href="{{ url('/notifikasi')}}">
-        <i class="fas fa-bell"></i>
+          <i class="fas fa-bell"></i>
           <span>Notifikasi</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
       <li  class="nav-item">
         <a class="nav-link " href="" data-toggle="modal" data-target="#logoutModal">
-        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-        <span>Logout</span>
+          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+          <span>Logout</span>
         </a>
       </li>
       <!-- Divider -->
@@ -89,7 +89,6 @@
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-
     </ul>
     <!-- End of Sidebar -->
 
@@ -103,21 +102,21 @@
         <div class="container-fluid">
           <section class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
-                  <div class="col-sm-6">
-                      <h1>Dashboard</h1>
-                  </div>
-                  <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                      <li class="breadcrumb-item active"><a >Dashboard</a></li>
-                    </ol>
-                  </div>
+              <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Dashboard</h1>
                 </div>
+                <div class="col-sm-6">
+                  <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item active"><a >Dashboard</a></li>
+                  </ol>
+                </div>
+              </div>
             </div><!-- /.container-fluid -->
           </section>
+
           <div class="row">
             <!-- Earnings (Monthly) Card Example -->
-            
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -143,20 +142,20 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Manajemen Pengguna</div>
-                        <a href="{{ url('/manage-user')}}">
-                          <div class="h5 mb-0 font-weight-bold text-gray-800 small">Jumlah Pengguna <kbd>50</kbd></div>
-                        </a>
-                      </div>
+                      <a href="{{ url('/manage-user')}}">
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 small">Jumlah Pengguna <kbd>50</kbd></div>
+                      </a>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-users-cog fa-2x text-gray-300"></i>
-                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-users-cog fa-2x text-gray-300"></i>
                   </div>
                 </div>
               </div>
-            {{-- </div> --}}
+            </div>
+              {{-- </div> --}}
 
-            <!-- Earnings (Monthly) Card Example -->
+              <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
@@ -196,7 +195,7 @@
 
           </div>
 
-          <!-- DataTales Example -->
+            <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Data </h6>
@@ -246,7 +245,7 @@
         </div>
 
         <a class="scroll-to-top rounded" href="../#page-top">
-          <i class="fas fa-angle-up"></i>
+            <i class="fas fa-angle-up"></i>
         </a>
         {{-- <script src="../vendor/jquery/jquery.min.js"></script> --}}
         {{-- <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
@@ -266,10 +265,10 @@
         <!-- Page level custom scripts -->
         <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
       </footer>
-      <!-- End of Footer -->
+        <!-- End of Footer -->
 
     </div>
-    <!-- End of Content Wrapper -->
+      <!-- End of Content Wrapper -->
 
   </div>
   <!-- End of Page Wrapper -->

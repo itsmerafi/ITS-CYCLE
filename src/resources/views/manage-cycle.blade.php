@@ -250,13 +250,14 @@
         <h3>Tambah Sepeda</h3>
       </div>
       <div class="modal-body" style="padding-left: 40px">
-        <form action="#" method="post" >     
+        <form action="#" method="post" > 
+          @csrf    
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >Model</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <input type="text" name="" class="form-control" placeholder="">
+              <input type="text" name="sepedas_model" class="form-control" placeholder="Masukkan Model Sepeda">
             </div>
           </div>
           <div class="row form-group">
@@ -264,7 +265,7 @@
               <label class=""><strong >Tanggal</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <input type="date" name="" class="form-control" placeholder="">
+              <input type="date" name="sepedas_tanggal_beli" class="form-control" placeholder="">
             </div>
           </div>
           <div class="row form-group">
@@ -272,11 +273,12 @@
               <label class=""><strong >Ditempatkan pada Pos</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <select class="form-control">
-                <option>1 - Pintu Utama</option>
-                <option>2 - Asrama</option>
-                <option>3 - Blot J</option>
-              </select>
+              <select class="form-control" name="pos_lokasi">
+                {{-- <option disabled="" value="Pilih Pos"></option> --}}
+                @foreach($pos as $key)
+                  <option value="{{$key->pos_lokasi}}">{{ $key->pos_lokasi }}</option>
+                @endforeach
+              </select>                     
             </div>  
           </div>
           <div class="row form-group">
@@ -284,9 +286,9 @@
               <label class=""><strong >Status</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <select class="form-control">
-                <option>Sangat Baik</option>
+              <select class="form-control" name="sepedas_is_available">
                 <option>Baik</option>
+                <option>Sangat Baik</option>
                 <option>Tidak Dapat Digunakan</option>
               </select>
             </div>  
@@ -306,7 +308,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3>Tambah User</h3>
+        <h3>Edit Sepeda</h3>
       </div>
       <div class="modal-body" style="padding-left: 40px">
         <form action="#" method="post" >     
@@ -315,24 +317,25 @@
               <label class=""><strong >Ditempatkan pada Pos</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <select class="form-control">
-                <option>1 - Pintu Utama</option>
-                <option>2 - Asrama</option>
-                <option>3 - Blot J</option>
-              </select>
-            </div>  
+              <select class="form-control" name="pos_lokasi">
+                {{-- <option disabled="" value="Pilih Pos"></option> --}}
+                @foreach($pos as $key)
+                  <option value="{{$key->pos_lokasi}}">{{ $key->pos_lokasi }}</option>
+                @endforeach
+              </select>                     
+            </div>   
           </div>
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >Status</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <select class="form-control">
-                <option>Sangat Baik</option>
+              <select class="form-control" name="sepedas_is_available">
                 <option>Baik</option>
+                <option>Sangat Baik</option>
                 <option>Tidak Dapat Digunakan</option>
               </select>
-            </div>  
+            </div>   
           </div>         
              
               {{-- </div>                      --}}

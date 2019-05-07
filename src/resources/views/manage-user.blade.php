@@ -247,13 +247,14 @@
         <h3>Tambah User</h3>
       </div>
       <div class="modal-body" style="padding-left: 40px">
-       <form action="#" method="post" >     
+        <form action="{{ route('register') }}" method="post" >  
+          @csrf   
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >NRP</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <input type="text" name="" class="form-control" placeholder="Contoh : 0511164000xxxx">
+              <input type="text" name="users_nomor_id" class="form-control" placeholder="Contoh : 0511164000xxxx">
             </div>
           </div>
           <div class="row form-group">
@@ -261,7 +262,7 @@
               <label class=""><strong >NAMA</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <input type="text" name="" class="form-control" placeholder="Nama Pengguna">
+              <input type="text" name="users_nama" class="form-control" placeholder="Nama Pengguna">
             </div>  
           </div>      
           <div class="row form-group">
@@ -269,7 +270,7 @@
               <label class=""><strong >No. HP</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <input type="text" name="" class="form-control" placeholder="Contoh : 0877xxxxxxxx">
+              <input type="text" name="users_nomorhp" class="form-control" placeholder="Contoh : 0877xxxxxxxx">
             </div>
           </div> 
           <div class="row form-group">
@@ -277,7 +278,7 @@
               <label class=""><strong >Alamat Surabaya</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <input type="text" name="" class="form-control">
+              <input type="text" name="users_alamat" class="form-control">
             </div>
           </div>
           <div class="row form-group">
@@ -285,24 +286,23 @@
               <label class=""><strong >Departemen</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <select class="form-control">
-              <option selected disabled >Choose..</option>
-              <option>Informatika</option>
-              <option>Sistem Informasi</option>
-              <option>Fisika</option>
-            </select>                          
+              <select class="form-control" name="users_departemen">
+                {{-- <option></option>Required for data-placeholder attribute to work with Select2 plugin --}}
+                @foreach($dep as $deps)
+                  <option value="{{$deps->departemens_nama}}">{{ $deps->departemens_nama }}</option>
+                @endforeach
+              </select>                      
             </div>
             
           </div>                     
 
           <div style="text-align: right; margin:10px ; margin-right: 40px">
           
-          <button id="btnSubmit" type="submit" class="btn btn-primary btn-hero " name="btnSubmit" ><span class="fa fa-plus-circle" aria-hidden="true"></span>  KIRIM</button>
+            <button id="btnSubmit" type="submit" class="btn btn-primary btn-hero " name="btnSubmit" ><span class="fa fa-plus-circle" aria-hidden="true"></span>  KIRIM</button>
           </div>
         </form>
       </div>
-    </div>
-     
+    </div>   
   </div>
 </div>
 <!-- END MODAL ADD -->
