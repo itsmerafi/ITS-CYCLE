@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sepeda;
 
 class PeminjamanController extends Controller
 {
@@ -37,8 +38,16 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->id);
         //
-        return view('form-pinjam');
+        // $id = $request->sepedas_mode;
+
+        // // $sepeda = Sepeda::where('id',$id)->firstOrFail();
+        // $sepeda = Sepeda::where('id',$id)->first();
+
+        // dd($id);
+        // // $data['id']=$id;
+        // return view('form-pinjam',compact('id','sepeda'));
     }
 
     /**
@@ -50,6 +59,7 @@ class PeminjamanController extends Controller
     public function show($id)
     {
         //
+        // return view('data-peminjaman');
     }
 
     /**
@@ -86,7 +96,14 @@ class PeminjamanController extends Controller
         //
     }
 
-    // public function form(){
-    //     return view('form-pinjam');
-    // }
+    public function form(Request $request){
+        $id = 'SP'.$request->id;
+
+        // $sepeda = Sepeda::where('id',$id)->firstOrFail();
+        $sepeda = Sepeda::where('id',$id)->first();
+
+        // dd($sepeda);
+        // $data['id']=$id;
+        return view('form-pinjam',compact('id','sepeda'));
+    }
 }

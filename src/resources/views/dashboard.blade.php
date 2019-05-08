@@ -42,14 +42,14 @@
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{ url('/dashboard')}}">
+        <a class="nav-link" href="{{ route('dashboard.index')}}">
           <i class="fas fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
       <li class="nav-item ">
-        <a class="nav-link" href="{{ url('/data-peminjaman')}}">
+        <a class="nav-link" href="{{ route('peminjaman.index')}}">
           <i class="fas fa-database"></i>
           <span>Data Peminjaman </span>
         </a>

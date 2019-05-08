@@ -55,6 +55,7 @@ Route::get('/', 'HomeController@index')->name('index');
 
 Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
 
+Route::post('peminjaman/form', 'PeminjamanController@form')->name('peminjaman.form');
 Route::resource('peminjaman','PeminjamanController');
 
 // Route::get('/data-peminjaman','PeminjamanController@index')->name('peminjaman.index');

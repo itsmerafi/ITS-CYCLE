@@ -266,6 +266,17 @@
 <script src="../js/Home/main.js" /> "></script> --}}
 </body>
 
+{{-- <script type="text/javascript">
+ $(document).on("click", ".pnjm", function () {
+     var sepeda_Id = $(this).data('id');
+     $(".modal-body #sepeda_id").val( myBookId );
+     // As pointed out in comments, 
+     // it is unnecessary to have to manually call the modal.
+     // $('#addBookDialog').modal('show');
+});
+ </script> --}}
+
+
 <div class="modal fade" id="peminjaman">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
@@ -274,14 +285,22 @@
                 <h4 class="modal-title">PEMINJAMAN</h4>
             </div>
             <!-- Modal body -->
-            <form action="{{ route('peminjaman.store') }}" method="post">
-                {{ csrf_field() }}
+            <form action="{{ route('peminjaman.form') }}" method="post">
+                @csrf
                 <div class="modal-body" style="padding:1rem">
                    <label>ID SEPEDA</label>
-                   <input class="form-control" type="text" name="id_sepeda">
+                   <div>
+                       <div style="width: 26%; height: 50%; float:left;">
+                           <input class="form-control" type="text" disabled="" placeholder="SP">
+                       </div>
+                       <div style="width: 74%; height: 50%; float:right;">
+                           <input class="form-control" type="text" name="id" id="sepeda_id" >
+                       </div>
+                       {{-- <div style="width: 100%; height: 50%; background-color: red; clear:both">-</div> --}}
+                   </div>                   
                 </div>
                 <!-- Modal footer -->
-                <div>                  
+                <div class="modal-footer">                  
                     <div class="row" align="center" >
                         <button type="button" data-dismiss="modal"  class="btn-sm" style="background-color: grey  ">BATAL</button>
                         <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">LANJUT</button>

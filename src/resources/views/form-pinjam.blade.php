@@ -81,24 +81,25 @@ img{
         </div>
           <p> Informasi Sepeda </p>
           {{-- <form action="{{ url('/dashboard')}}"> --}}
-          <form action="{{ route('peminjaman.store') }}" method="POST">
+          <form action="{{ route('peminjaman.store') }}" method="post">
             @csrf
 
             <div class="form-group">
               <label>ID Sepeda</label>
-              <input type="text" class="form-control"  value="SPD01" disabled>
+              <input type="text" class="form-control"  value="{{$id}}" readonly name="id">
             </div>
             <div class="form-group">
               <label>MODEL Sepeda</label>
-              <input type="text" class="form-control" disabled value="evergreen biru"> 
+              <input type="text" class="form-control" value="{{$sepeda->sepedas_model}}" name="sepedas_model" readonly> 
             </div>
             <div class="form-group">
               <label>POS Peminjaman</label>
-              <input type="text" class="form-control" value="01-Pintu Utama" disabled>
+              <input type="text" class="form-control" value="{{$sepeda->pos->pos_lokasi}}" readonly name="pos_lokasi">
             </div>
 
 
             <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">PINJAM</button>
+            {{-- <input type="submit" class="btn btn-success col-lg-4" value="Submit" style="margin-bottom: 20px" placeholder="PINJAM"> --}}
           </form>
           <a href="{{ url('/')}}">Kembali<<</a>
         </div>

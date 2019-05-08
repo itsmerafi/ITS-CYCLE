@@ -17,4 +17,9 @@ class Pos extends Model
     {
         return $this->BelongsTo('App\User','petugas_id');
     }
+
+    public function sepeda()
+    {
+        return $this->hasMany('App\Sepeda');
+    }
 }

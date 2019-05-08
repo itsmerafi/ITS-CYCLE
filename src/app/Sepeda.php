@@ -9,4 +9,9 @@ class Sepeda extends Model
     //
     protected $table = 'sepedas';
     protected $fillable = ['id','sepedas_model','sepedas_tanggal_beli','sepedas_is_available','pos_id'];
+
+    public function pos()
+    {
+        return $this->BelongsTo('App\Pos');
+    }
 }
