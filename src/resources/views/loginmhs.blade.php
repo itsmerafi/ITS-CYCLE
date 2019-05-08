@@ -77,25 +77,25 @@ img{
           <h3>SELAMAT DATANG DI <strong>ITS-CYCLE</strong></h3>
           <p>Sistem Informasi Peminjaman Sepeda ITS
           <form method="POST" action="{{ route('login') }}">
-                        @csrf
+            @csrf
 
-                        <div class="form-group">
+            <div class="form-group">
               <input name="users_nomor_id" type="text" class="form-control" placeholder="Enter NRP">
             </div>
             <div class="form-group">
               <input name="password" type="password" class="form-control" placeholder="Enter Password">
             </div>
             <button type="submit" class="btn btn-success" style="margin: 10px">Login</button>
-                    </form>
+          </form>
         </div>
 
         <div class="col-12 forgot ">
           
-          <a href="{{ route('register') }}">{{ __('Belum Punya Akun?') }}</a>
+          {{-- <a href="{{ route('register') }}">{{ __('Belum Punya Akun?') }}</a> --}}
           
           {{-- <a href="#" data-toggle="modal" data-target="#penggunabaru">Belum Punya Akun?</a> --}}
-          <strong>|</strong>
-          <a type="" href="dashboard.php"> ADMIN SITE </a>
+          {{-- <strong>|</strong> --}}
+          <a type="" href="{{ route('dashboard.index')}}"> ADMIN SITE </a>
         </div>
 
       </div>

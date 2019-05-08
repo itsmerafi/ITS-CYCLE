@@ -59,30 +59,32 @@
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Tables -->
       <li class="nav-item ">
-        <a class="nav-link" href="{{ url('/data-user')}}">
+        <a class="nav-link" href="{{ route('user.index')}}">
           <i class="fas fa-users-cog"></i>
-          <span>Manajemen Pengguna</span></a>
-      </li>
-      <hr class="sidebar-divider my-0">      
-      <li class="nav-item ">
-        <a class="nav-link" href="{{ url('/data-sepeda')}}">
-          <i class="fas fa-bicycle"></i>
-          <span>Manajemen Sepeda</span></a>
-      </li>
-      <hr class="sidebar-divider my-0">
-      <li class="nav-item ">
-        <a class="nav-link" href="{{ url('/notifikasi')}}">
-        <i class="fas fa-bell"></i>
-          <span>Notifikasi</span></a>
-      </li>
-      <hr class="sidebar-divider my-0">
-      <li  class="nav-item ">
-        <a class="nav-link " href="" data-toggle="modal" data-target="#logoutModal">
-        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-        <span>Logout</span>
+          <span>Manajemen Pengguna</span>
         </a>
       </li>
-
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item ">
+        <a class="nav-link" href="{{ route('sepeda.index')}}">
+          <i class="fas fa-bicycle"></i>
+          <span>Manajemen Sepeda</span>
+        </a>
+      </li>
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item ">
+        <a class="nav-link" href="{{ route('notifikasi.index')}}">
+          <i class="fas fa-bell"></i>
+          <span>Notifikasi</span>
+        </a>
+      </li>
+      <hr class="sidebar-divider my-0">
+      <li  class="nav-item">
+        <a class="nav-link " href="" data-toggle="modal" data-target="#logoutModal">
+          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+          <span>Logout</span>
+        </a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
       <!-- Sidebar Toggler (Sidebar) -->

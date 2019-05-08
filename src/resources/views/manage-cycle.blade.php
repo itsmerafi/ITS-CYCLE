@@ -34,7 +34,6 @@
     <!-- Sidebar -->
     <!-- ?php require_once 'navbar.php' ?> -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.html">
         <div class="sidebar-brand-icon rotate-n-15">
@@ -42,62 +41,57 @@
         </div>
         <div class="sidebar-brand-text mx-3" >PETUGAS <sup>ITS-CYCLE</sup></div>
       </a>
-
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
-
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/dashboard')}}">
+      <li class="nav-item ">
+        <a class="nav-link" href="{{ route('dashboard.index')}}">
           <i class="fas fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
-
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/data-peminjaman')}}">
+      <li class="nav-item ">
+        <a class="nav-link" href="{{ route('peminjaman.index')}}">
           <i class="fas fa-database"></i>
           <span>Data Peminjaman </span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/data-user')}}">
+      <li class="nav-item ">
+        <a class="nav-link" href="{{ route('user.index')}}">
           <i class="fas fa-users-cog"></i>
           <span>Manajemen Pengguna</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
       <li class="nav-item active">
-        <a class="nav-link" href="{{ url('/data-sepeda')}}">
+        <a class="nav-link" href="{{ route('sepeda.index')}}">
           <i class="fas fa-bicycle"></i>
           <span>Manajemen Sepeda</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/notifikasi')}}">
-        <i class="fas fa-bell"></i>
+      <li class="nav-item ">
+        <a class="nav-link" href="{{ route('notifikasi.index')}}">
+          <i class="fas fa-bell"></i>
           <span>Notifikasi</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
       <li  class="nav-item">
-        <a class="nav-link " href="../#" data-toggle="modal" data-target="#logoutModal">
+        <a class="nav-link " href="" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
           <span>Logout</span>
-       </a>
+        </a>
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
-
     </ul>
     <!-- End of Sidebar -->
 

@@ -57,21 +57,21 @@
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Tables -->
       <li class="nav-item ">
-        <a class="nav-link" href="{{ url('/data-user')}}">
+        <a class="nav-link" href="{{ route('user.index')}}">
           <i class="fas fa-users-cog"></i>
           <span>Manajemen Pengguna</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
       <li class="nav-item ">
-        <a class="nav-link" href="{{ url('/data-sepeda')}}">
+        <a class="nav-link" href="{{ route('sepeda.index')}}">
           <i class="fas fa-bicycle"></i>
           <span>Manajemen Sepeda</span>
         </a>
       </li>
       <hr class="sidebar-divider my-0">
       <li class="nav-item ">
-        <a class="nav-link" href="{{ url('/notifikasi')}}">
+        <a class="nav-link" href="{{ route('notifikasi.index')}}">
           <i class="fas fa-bell"></i>
           <span>Notifikasi</span>
         </a>
