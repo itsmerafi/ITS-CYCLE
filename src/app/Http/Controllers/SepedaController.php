@@ -18,7 +18,8 @@ class SepedaController extends Controller
         //
         $data = Sepeda::orderBy('pos_id')->get();
         $pos = Pos::get();
-        // dd($data);
+        // print($data);
+        // exit;
 
         return view('manage-cycle',compact('data','pos'));
     }
@@ -42,6 +43,18 @@ class SepedaController extends Controller
     public function store(Request $request)
     {
         //
+        $sepeda = new Sepeda();
+        $sepeda->id = 'SP'.$request->id;
+        $sepeda->sepedas_model = $request->sepedas_model;
+        $sepeda->sepedas_tanggal_beli = $request->sepedas_tanggal_beli;
+        $sepeda->sepedas_is_available = $request->sepedas_is_available;
+        $sepeda->pos_id = $request->pos_lokasi;
+        $sepeda->save();
+
+        return redirect()->route('sepeda.index');
+
+        // $id = $request->all();
+        // dd($id);
     }
 
     /**

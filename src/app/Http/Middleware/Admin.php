@@ -25,12 +25,14 @@ class Admin
 
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->Admin()) {
+        if(!auth()->user()){
+            return redirect('/login');
+        }
+        else if(auth()->user()->Admin()) {
             return $next($request);
         }
+
         return redirect('/hak');
     }
-
-
 
 }

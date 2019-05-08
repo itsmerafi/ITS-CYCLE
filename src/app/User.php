@@ -50,6 +50,10 @@ class User extends Authenticatable
         return $this->isAdmin === self::ADMIN_TYPE;    
     }
 
+    // public function default()    {        
+    //     return $this->isAdmin === self::DEFAULT_TYPE;    
+    // }
+
     public function pos()
     {
         return $this->hasOne('App\Pos');

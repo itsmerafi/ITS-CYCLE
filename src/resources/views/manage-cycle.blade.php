@@ -143,7 +143,7 @@
                   <tbody>
                     <?php $x=1; ?>
                     
-                    @foreach($data as $key => $datas)
+                    @foreach($data as $datas)
                     <tr>
                       <td style="max-width: 10px; min-width: 10px"><?php echo $x; $x=$x+1; ?></td>
                       <td style="max-width: 10px; min-width: 10px">{{$datas->id}}</td>
@@ -248,7 +248,23 @@
       </div>
       <div class="modal-body" style="padding-left: 40px">
         <form action="#" method="post" > 
-          @csrf    
+          @csrf  
+          <div class="row form-group">
+              <div class="col-3">
+                <label class=""><strong >ID</strong><span style="color: red">*</span></label>
+              </div>
+              <div class="col-8">
+                <div style="width: 20%; height: 50%; float:left;">
+                  <input class="form-control" type="text" disabled="" placeholder="SP">
+                </div>
+                <div style="width: 80%; height: 50%; float:right;">
+                  <input class="form-control" type="text" name="id" id="sepeda_id" >
+                </div>
+                
+              </div>
+              
+             {{-- <div style="width: 100%; height: 50%; background-color: red; clear:both">-</div> --}}
+          </div>  
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >Model</strong><span style="color: red">*</span></label>
@@ -273,7 +289,7 @@
               <select class="form-control" name="pos_lokasi">
                 {{-- <option disabled="" value="Pilih Pos"></option> --}}
                 @foreach($pos as $key)
-                  <option value="{{$key->pos_lokasi}}">{{ $key->pos_lokasi }}</option>
+                  <option value="{{$key->id}}">{{ $key->pos_lokasi }}</option>
                 @endforeach
               </select>                     
             </div>  
@@ -291,7 +307,7 @@
             </div>  
           </div>                                   
           <div style="text-align: right; margin:10px ; margin-right: 40px"> 
-          <button id="btnSubmit" type="submit" class="btn btn-primary btn-hero " name="btnSubmit" ><span class="fa fa-plus-circle" aria-hidden="true"></span>  KIRIM</button>
+          <button id="btnSubmit" type="submit" class="btn btn-primary btn-hero "><span class="fa fa-plus-circle" aria-hidden="true"></span>  KIRIM</button>
           </div>
         </form>
       </div>
@@ -308,7 +324,7 @@
         <h3>Edit Sepeda</h3>
       </div>
       <div class="modal-body" style="padding-left: 40px">
-        <form action="#" method="post" >     
+        <form action="{{route('sepeda.create')}}" method="post" >     
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >Ditempatkan pada Pos</strong><span style="color: red">*</span></label>
@@ -333,12 +349,11 @@
                 <option>Tidak Dapat Digunakan</option>
               </select>
             </div>   
-          </div>         
-             
+          </div> 
               {{-- </div>                      --}}
           <div style="text-align: right; margin:10px ; margin-right: 40px">
-                    
-            <button id="btnSubmit" type="submit" class="btn btn-primary btn-hero " name="btnSubmit" ><span class="fa fa-plus-circle" aria-hidden="true"></span>  KIRIM</button>
+            <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">KIRIM</button>
+            {{-- <button type="submit" class="btn btn-primary btn-hero "><span class="fa fa-plus-circle" aria-hidden="true"></span>  KIRIM</button> --}}
           </div>
 
         </form>

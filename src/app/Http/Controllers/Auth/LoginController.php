@@ -34,21 +34,25 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    // protected $redirectTo = '/';
 
     protected function authenticated(Request $request, $user)
-{
-    if(auth()->user()->Admin())
+    {
+        // if(auth()->user()->default())
+        //   {
+        //     return redirect('/');
+    
+        //   }
+        if(auth()->user()->Admin())
           {
              return redirect('/dashboard');
-           // protected $redirectTo = '/admin';
+
           }
-          else
-          {
-            return redirect('/');
-           // protected $redirectTo = '/';
-          }
-}
+        // else
+        // {
+        //     return redirect('/');
+        // }
+    }  
 
     // if ( Auth::User()->isAdmin == 1)
     //   {

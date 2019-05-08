@@ -253,6 +253,7 @@
       <div class="modal-body" style="padding-left: 40px">
         <form action="{{ route('register') }}" method="post" >  
           @csrf   
+          
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >NRP</strong><span style="color: red">*</span></label>
@@ -297,7 +298,6 @@
                 @endforeach
               </select>                      
             </div>
-            
           </div>                     
 
           <div style="text-align: right; margin:10px ; margin-right: 40px">

@@ -41,7 +41,7 @@ class PeminjamanController extends Controller
     {
         // $data = Peminjaman::new()
         $id = $request->all();
-        dd($id);
+        // dd($id);
         // $create = Peminjaman::create($request->all())
 
     }
