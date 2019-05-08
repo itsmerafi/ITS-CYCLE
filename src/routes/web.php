@@ -36,11 +36,7 @@ Route::middleware(['admin'])->group(function() {
 	// Route::post('/form-peminjaman','PeminjamanController@form')->name('peminjaman.form');
 	Route::resource('sepeda','SepedaController');
 
-	// Route::get('/data-sepeda','SepedaController@index')->name('sepeda.index');
-	// Route::post('/data-sepeda','SepedaController@index')->name('sepeda.index');
-
-	Route::get('/data-user','UserController@index')->name('user.index');
-	Route::post('/data-user','UserController@index')->name('user.index');
+	Route::resource('data-user','UserController');
 	
 	Route::get('/notifikasi','NotifikasiController@index')->name('notifikasi.index');
 	Route::post('/notifikasi','NotifikasiController@index')->name('notifikasi.index');

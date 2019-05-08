@@ -42,6 +42,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        // $data = $request->all();
+        // dd($data);
     }
 
     /**
@@ -76,6 +78,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // $data = $request->all();
+        // dd($data);
     }
 
     /**

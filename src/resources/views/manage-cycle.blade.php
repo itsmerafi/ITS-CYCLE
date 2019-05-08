@@ -60,7 +60,7 @@
       <hr class="sidebar-divider my-0">
       <!-- Nav Item - Tables -->
       <li class="nav-item ">
-        <a class="nav-link" href="{{ route('user.index')}}">
+        <a class="nav-link" href="{{ route('data-user.index')}}">
           <i class="fas fa-users-cog"></i>
           <span>Manajemen Pengguna</span>
         </a>
