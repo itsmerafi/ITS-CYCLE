@@ -133,8 +133,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th style="max-width: 10px; min-width: 10px">No</th>
-                      <th style="max-width: 80px; min-width: 80px">NRP</th>
+                      <th style="max-width: 20px; min-width: 20px">No</th>
+                      <th style="max-width: 100px; min-width: 100px">NRP</th>
                       <th style="max-width: 80px; min-width: 80px">Nama</th>
                       <th style="max-width: 80px; min-width: 80px">No. HP</th>
                       <th style="max-width: 200px ; min-width: 200px">Alamat Surabaya</th>
@@ -148,8 +148,8 @@
                     
                     @foreach($data as $key => $datas)
                     <tr class="data-row">
-                      <td style="max-width: 10px; min-width: 10px"><?php echo $x; $x=$x+1; ?></td>
-                      <td style="max-width: 80px; min-width: 80px">{{$datas->users_nomor_id}}</td>
+                      <td style="max-width: 20px; min-width: 20px"><?php echo $x; $x=$x+1; ?></td>
+                      <td style="max-width: 100px; min-width: 100px">{{$datas->users_nomor_id}}</td>
                       <td class="name" style="max-width: 80px; min-width: 80px">{{$datas->users_nama}}</td>
                       <td class="hp" style="max-width: 80px; min-width: 80px">{{$datas->users_nomorhp}}</td>
                       <td class="alamat" style="max-width: 200px; min-width: 200px">{{$datas->users_alamat}}</td>
@@ -158,7 +158,7 @@
                          {{-- button class="btn-sm btn-secondary" data-toggle="modal" data-target="#edituser" name="editbtn" id="editbtn"> <i class="fas fa-user-cog"></i></button> --}}
                          <button type="button" class="btn-sm btn-secondary" id="edit-item" data-item-id="{{$datas->users_nomor_id}}">
                           <i class="fas fa-user-cog"></i>EDIT</button>
-                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
+                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i>HAPUS</button>
                       </td>
                     </tr>
                     <tr>
@@ -228,74 +228,52 @@
         <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
               <!-- End of Footer -->
 
-              <script type="text/javascript">
-  $(document).ready(function() {
-  /**
-   * for showing edit item popup
-   */
+        <script type="text/javascript">
+        $(document).ready(function() {
+        /**
+         * for showing edit item popup
+         */
 
-  $(document).on('click', "#edit-item", function() {
-    $(this).addClass('edit-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+        $(document).on('click', "#edit-item", function() {
+          $(this).addClass('edit-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
 
-    var options = {
-      'backdrop': 'static'
-    };
-    $('#edituser').modal(options)
-  })
+          var options = {
+            'backdrop': 'static'
+          };
+          $('#edituser').modal(options)
+        })
 
-  // on modal show
-  $('#edituser').on('show.bs.modal', function() {
-    var el = $(".edit-item-trigger-clicked"); // See how its usefull right here? 
-    var row = el.closest(".data-row");
+        // on modal show
+        $('#edituser').on('show.bs.modal', function() {
+          var el = $(".edit-item-trigger-clicked"); // See how its usefull right here? 
+          var row = el.closest(".data-row");
 
-    // get the data
-    var id = el.data('item-id');
-    var name = row.children(".name").text();
-    var hp = row.children(".hp").text();
-    var alamat = row.children(".alamat").text();
-    var departemen = row.children(".departemen").text();
+          // get the data
+          var id = el.data('item-id');
+          var name = row.children(".name").text();
+          var hp = row.children(".hp").text();
+          var alamat = row.children(".alamat").text();
+          var departemen = row.children(".departemen").text();
 
-    // fill the data in the input fields
-    $("#modal-input-id").val(id);
-    $("#modal-input-name").val(name);
-    $("#modal-input-hp").val(hp);
-    $("#modal-input-alamat").val(alamat);
-    $("#modal-input-departemen").val(departemen);
+          // fill the data in the input fields
+          $("#users_nomor_id").val(id);
+          $("#users_nama").val(name);
+          $("#users_nomorhp").val(hp);
+          $("#users_alamat").val(alamat);
+          $("#users_departemen").val(departemen);
+          $("#form-edit").attr("action","data-user/"+id);
 
-  })
+        })
 
-  // on modal hide
-  $('#edituser').on('hide.bs.modal', function() {
-    $('.edit-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
-    $("#edit-form").trigger("reset");
-  })
-})
-
-// $(document).on("click", "#edit-item", function() {
-//   var id = $(this).val();  
-//   url = "/data-user/";
-//   $.ajax({
-//     url: url,
-//     method: "get"    
-//   }).done(function(response) {
-//     //Setting input values
-//     $("input[name='modal-input-id']").val(id);
-//     $("input[name='modal-input-name']").val(response.name);
-//     $("input[name='modal-input-hp']").val(response.hp);
-//     $("input[name='modal-input-alamat']").val(response.alamat);
-//     $("input[name='modal-input-departemen']").val(response.departemen);
-//     // $("input[name='editID']").val(id);
-//     // $("input[name='company']").val(response.company);
-//     // $("input[name='to']").val(response.to);
-//     // $("input[name='from']").val(response.from);
-
-//     //Setting submit url
-//     $("edituser").attr("action","/data-user/"+id+"/edit")
-//   });
-// });
+        // on modal hide
+        $('#edituser').on('hide.bs.modal', function() {
+          $('.edit-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
+          $("#edit-form").trigger("reset");
+        })
+      })
 
 
-</script>
+      </script>
       </footer>
     </div>
     <!-- End of Content Wrapper -->
@@ -384,14 +362,15 @@
         <h3>Ubah Data User</h3>
       </div>
       <div class="modal-body" style="padding-left: 40px">
-       <form action="{{ url('/data-user/{id}') }}" method="post" > 
+       <form id="form-edit" action="" method="post">
+        <input name="_method" type="hidden" value="PATCH">
           @csrf
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >NRP</strong><span style="color: red">*</span></label>
             </div>
             <div class="col-8">
-              <input type="text" id="modal-input-id" name="modal-input-id" class="form-control" readonly>
+              <input type="text" id="users_nomor_id" name="users_nomor_id" class="form-control" disabled>
             </div>
             </div>
               <div class="row form-group">
@@ -399,7 +378,7 @@
                   <label class=""><strong >NAMA</strong><span style="color: red">*</span></label>
                 </div>
                 <div class="col-8">
-                  <input type="text" id="modal-input-name" name="modal-input-name" class="form-control" placeholder="Nama Pengguna">
+                  <input type="text" id="users_nama" name="users_nama" class="form-control" placeholder="Nama Pengguna">
                 </div>  
               </div>      
               <div class="row form-group">
@@ -407,7 +386,7 @@
                   <label class=""><strong >No. HP</strong><span style="color: red">*</span></label>
                 </div>
                 <div class="col-8">
-                  <input type="text" id="modal-input-hp" name="modal-input-hp" class="form-control" placeholder="Contoh : 0877xxxxxxxx">
+                  <input type="text" id="users_nomorhp" name="users_nomorhp" class="form-control" placeholder="Contoh : 0877xxxxxxxx">
                 </div>
               </div> 
               <div class="row form-group">
@@ -415,7 +394,7 @@
                   <label class=""><strong >Alamat Surabaya</strong><span style="color: red">*</span></label>
                 </div>
                 <div class="col-8">
-                  <input type="text" id="modal-input-alamat" name="modal-input-alamat" class="form-control">
+                  <input type="text" id="users_alamat" name="users_alamat" class="form-control">
                 </div>
               </div>
               <div class="row form-group">
@@ -423,13 +402,13 @@
                   <label class=""><strong >Departemen</strong><span style="color: red">*</span></label>
                 </div>
                 <div class="col-8">
-                <select class="form-control" name="modal-input-departemen" id="modal-input-departemen">
-                
-                  @foreach($dep as $deps)
-                    <option value="{{$deps->departemens_nama}}">{{ $deps->departemens_nama }}</option>
-                  @endforeach
-                </select>                      
-            </div>
+                  <select class="form-control" name="users_departemen" id="users_departemen">
+                    {{-- <option disabled="" value="Pilih Pos"></option> --}}
+                    @foreach($dep as $deps)
+                      <option value="{{$deps->departemens_nama}}">{{ $deps->departemens_nama }}</option>
+                    @endforeach
+                  </select>                     
+                </div>  
               </div>
             </div>                     
             <div style="text-align: right; margin:10px ; margin-right: 40px">

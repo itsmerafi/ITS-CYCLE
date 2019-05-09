@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Departemen;
 
@@ -42,8 +43,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        // $data = $request->all();
-        // dd($data);
+
     }
 
     /**
@@ -80,6 +80,16 @@ class UserController extends Controller
         //
         // $data = $request->all();
         // dd($data);
+
+        $data = User::find($id);
+
+        $data->users_nama = $request->users_nama;
+        $data->users_nomorhp = $request->users_nomorhp;
+        $data->users_alamat = $request->users_alamat;
+        $data->users_departemen = $request->users_departemen;
+        $data->save();
+
+        return redirect()->route('data-user.index');
     }
 
     /**

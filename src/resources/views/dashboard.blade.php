@@ -206,11 +206,11 @@
                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th style="max-width: 10px; min-width: 10px">NO</th>
-                      <th style="max-width: 10px; min-width: 10px">POS</th>
-                      <th style="max-width: 50px; min-width: 50px">STATUS</th>
-                      <th style="max-width: 80px; min-width: 80px">PETUGAS</th>
-                      <th style="max-width: 20px; min-width: 20px">SEPEDA TERSEDIA</th>       
+                      <th style="width:10%">NO</th>
+                      <th style="width:25%">POS</th>
+                      <th style="width:10%">STATUS</th>
+                      <th style="width:15%">PETUGAS</th>
+                      <th style="width:20%">SEPEDA TERSEDIA</th>       
                     </tr>
                   </thead>
 
@@ -218,11 +218,11 @@
                     <?php $x=1; ?>
                     @foreach($data as $key => $datas)
                     <tr>
-                      <td style="max-width: 10px; min-width: 10px"><?php echo $x; $x=$x+1; ?></td>
-                      <td style="max-width: 10px; min-width: 10px">{{$datas->pos_lokasi}}</td>
-                      <td style="max-width: 50px; min-width: 50px">{{$datas->pos_is_active}}</td>
-                      <td style="max-width: 80px; min-width: 80px">{{$datas->petugas->users_nama}}</td>
-                      <td style="max-width: 20px; min-width: 20px">{{$datas->pos_jumlah_sepeda}}</td>
+                      <td style="width:10%"><?php echo $x; $x=$x+1; ?></td>
+                      <td style="width:25%">{{$datas->pos_lokasi}}</td>
+                      <td style="width:10%">{{$datas->pos_is_active}}</td>
+                      <td style="width:15%">{{$datas->petugas->users_nama}}</td>
+                      <td style="width:20%">{{$datas->pos_jumlah_sepeda}}</td>
                     </tr>
                     @endforeach
                   </tbody>

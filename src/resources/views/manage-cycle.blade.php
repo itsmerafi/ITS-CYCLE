@@ -147,12 +147,12 @@
                     <tr>
                       <td style="max-width: 10px; min-width: 10px"><?php echo $x; $x=$x+1; ?></td>
                       <td style="max-width: 10px; min-width: 10px">{{$datas->id}}</td>
-                      <td style="max-width: 50px; min-width: 50px">{{$datas->pos_id}}</td>
-                      <td style="max-width: 80px; min-width: 80px">{{$datas->sepedas_model}}</td>
-                      <td style="max-width: 20px; min-width: 20px">{{$datas->sepedas_tanggal_beli}}</td>
-                      <td style="max-width: 20px; min-width: 20px">{{$datas->sepedas_is_available}}</td>
+                      <td class="pos" style="max-width: 50px; min-width: 50px">{{$datas->pos_id}}</td>
+                      <td class="Model" style="max-width: 80px; min-width: 80px">{{$datas->sepedas_model}}</td>
+                      <td class="Tanggal" style="max-width: 20px; min-width: 20px">{{$datas->sepedas_tanggal_beli}}</td>
+                      <td class="status" style="max-width: 20px; min-width: 20px">{{$datas->sepedas_is_available}}</td>
                       <td style="max-width: 50px; min-width: 50px">
-                         <button title="ubah" class="btn-sm btn-secondary" data-toggle="modal" data-target="#editCycle"><i class="fas fa-cog"></i></i></button>
+                         <button type="button" class="btn-sm btn-secondary" id="edit-item" data-item-id="{{$datas->id}}"><i class="fas fa-cog"></i></i>EDIT</button>
                         <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
                       </td>
                     </tr>
@@ -219,6 +219,53 @@
 
         <!-- Page level custom scripts -->
         <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+        /**
+         * for showing edit item popup
+         */
+
+        $(document).on('click', "#edit-item", function() {
+          $(this).addClass('edit-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+
+          var options = {
+            'backdrop': 'static'
+          };
+          $('#editCycle').modal(options)
+        })
+
+        // on modal show
+        $('#editCycle').on('show.bs.modal', function() {
+          var el = $(".edit-item-trigger-clicked"); // See how its usefull right here? 
+          var row = el.closest(".data-row");
+
+          // get the data
+          var id = el.data('item-id');
+          var pos = row.children(".pos").text();
+          var status = row.children(".status").text();
+          // var alamat = row.children(".alamat").text();
+          // var departemen = row.children(".departemen").text();
+
+          // fill the data in the input fields
+          $("#nomor_id").val(id);
+          $("#pos_lokasi").val(pos);
+          $("#pos_status").val(status);
+          // $("#users_alamat").val(alamat);
+          // $("#users_departemen").val(departemen);
+          $("#form-edit").attr("action","sepeda/"+id);
+
+        })
+
+        // on modal hide
+        $('#editCycle').on('hide.bs.modal', function() {
+          $('.edit-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
+          $("#edit-form").trigger("reset");
+        })
+      })
+
+
+      </script>
 
       </footer>
       <!-- End of Footer -->
@@ -324,7 +371,9 @@
         <h3>Edit Sepeda</h3>
       </div>
       <div class="modal-body" style="padding-left: 40px">
-        <form action="{{route('sepeda.create')}}" method="post" >     
+        <form id="form-edit" action="" method="post"" > 
+        <input name="_method" type="hidden" value="PATCH">
+        @csrf    
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >Ditempatkan pada Pos</strong><span style="color: red">*</span></label>
@@ -333,7 +382,7 @@
               <select class="form-control" name="pos_lokasi">
                 {{-- <option disabled="" value="Pilih Pos"></option> --}}
                 @foreach($pos as $key)
-                  <option value="{{$key->pos_lokasi}}">{{ $key->pos_lokasi }}</option>
+                  <option value="{{$key->id}}">{{ $key->pos_lokasi }}</option>
                 @endforeach
               </select>                     
             </div>   
@@ -350,10 +399,10 @@
               </select>
             </div>   
           </div> 
-              {{-- </div>                      --}}
+              {{-- </div>     --}}
+          <input  type="hidden" id="nomor_id" name="nomor_id" class="form-control" disabled>                
           <div style="text-align: right; margin:10px ; margin-right: 40px">
             <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">KIRIM</button>
-            {{-- <button type="submit" class="btn btn-primary btn-hero "><span class="fa fa-plus-circle" aria-hidden="true"></span>  KIRIM</button> --}}
           </div>
 
         </form>

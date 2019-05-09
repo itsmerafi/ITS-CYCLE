@@ -89,6 +89,17 @@ class SepedaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // $data = $request->all();
+        // dd($data);
+        $data = Sepeda::find($id);
+
+        $data->sepedas_is_available = $request->sepedas_is_available;
+        $data->pos_id = $request->pos_lokasi;
+        // $data->users_alamat = $request->users_alamat;
+        // $data->users_departemen = $request->users_departemen;
+        $data->save();
+
+        return redirect()->route('sepeda.index');
     }
 
     /**
