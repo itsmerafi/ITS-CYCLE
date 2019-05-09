@@ -40,7 +40,7 @@ class PeminjamanController extends Controller
     public function store(Request $request)
     {
         // $data = Peminjaman::new()
-        $id = $request->all();
+        // $id = $request->all();
         // dd($id);
         // $create = Peminjaman::create($request->all())
 

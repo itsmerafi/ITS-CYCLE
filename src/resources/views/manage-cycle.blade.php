@@ -153,7 +153,8 @@
                       <td class="status" style="max-width: 20px; min-width: 20px">{{$datas->sepedas_is_available}}</td>
                       <td style="max-width: 50px; min-width: 50px">
                          <button type="button" class="btn-sm btn-secondary" id="edit-item" data-item-id="{{$datas->id}}"><i class="fas fa-cog"></i></i>EDIT</button>
-                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
+                        <button type="button" class="btn-sm btn-danger" id="delete-item" data-item-id="{{$datas->id}}">
+                          <i class="fas fa-trash"></i>HAPUS</button>
                       </td>
                     </tr>
                     @endforeach
@@ -371,9 +372,9 @@
         <h3>Edit Sepeda</h3>
       </div>
       <div class="modal-body" style="padding-left: 40px">
-        <form id="form-edit" action="" method="post"" > 
-        <input name="_method" type="hidden" value="PATCH">
-        @csrf    
+        <form id="form-delete" action="" method="deleta" > 
+        {{-- <input name="_method" type="hidden" value="PATCH"> --}}
+        {{-- @csrf     --}}
           <div class="row form-group">
             <div class="col-3">
               <label class=""><strong >Ditempatkan pada Pos</strong><span style="color: red">*</span></label>

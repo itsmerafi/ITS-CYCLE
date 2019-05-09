@@ -101,7 +101,7 @@ img{
             {{-- <button type="submit" class="btn btn-primary" style="margin-bottom: 20px">PINJAM</button> --}}
             <input type="submit" class="btn btn-success col-lg-4" value="Submit" style="margin-bottom: 20px" placeholder="PINJAM">
           </form>
-          <a href="{{ url('/')}}">Kembali<<</a>
+          <a href="{{ route('index')}}">Kembali<<</a>
         </div>
 
       </div>

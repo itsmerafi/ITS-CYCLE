@@ -156,9 +156,11 @@
                       <td class="departemen" style="max-width: 70px; min-width: 70px">{{$datas->users_departemen}}</td>
                       <td>
                          {{-- button class="btn-sm btn-secondary" data-toggle="modal" data-target="#edituser" name="editbtn" id="editbtn"> <i class="fas fa-user-cog"></i></button> --}}
-                         <button type="button" class="btn-sm btn-secondary" id="edit-item" data-item-id="{{$datas->users_nomor_id}}">
+                        <button type="button" class="btn-sm btn-secondary" id="edit-item" data-item-id="{{$datas->users_nomor_id}}">
                           <i class="fas fa-user-cog"></i>EDIT</button>
-                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i>HAPUS</button>
+                        <button type="button" class="btn-sm btn-danger" id="delete-item" data-item-id="{{$datas->users_nomor_id}}">
+                          <i class="fas fa-trash"></i>HAPUS</button>
+                        {{-- <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i>HAPUS</button> --}}
                       </td>
                     </tr>
                     <tr>
@@ -228,52 +230,92 @@
         <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
               <!-- End of Footer -->
 
+        <!-- EDIT SCRIPT -->
         <script type="text/javascript">
-        $(document).ready(function() {
-        /**
-         * for showing edit item popup
-         */
+          $(document).ready(function() {
+          /**
+           * for showing edit item popup
+           */
 
-        $(document).on('click', "#edit-item", function() {
-          $(this).addClass('edit-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+          $(document).on('click', "#edit-item", function() {
+            $(this).addClass('edit-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
 
-          var options = {
-            'backdrop': 'static'
-          };
-          $('#edituser').modal(options)
-        })
+            var options = {
+              'backdrop': 'static'
+            };
+            $('#edituser').modal(options)
+          })
 
-        // on modal show
-        $('#edituser').on('show.bs.modal', function() {
-          var el = $(".edit-item-trigger-clicked"); // See how its usefull right here? 
-          var row = el.closest(".data-row");
+          // on modal show
+          $('#edituser').on('show.bs.modal', function() {
+            var el = $(".edit-item-trigger-clicked"); // See how its usefull right here? 
+            var row = el.closest(".data-row");
 
-          // get the data
-          var id = el.data('item-id');
-          var name = row.children(".name").text();
-          var hp = row.children(".hp").text();
-          var alamat = row.children(".alamat").text();
-          var departemen = row.children(".departemen").text();
+            // get the data
+            var id = el.data('item-id');
+            var name = row.children(".name").text();
+            var hp = row.children(".hp").text();
+            var alamat = row.children(".alamat").text();
+            var departemen = row.children(".departemen").text();
 
-          // fill the data in the input fields
-          $("#users_nomor_id").val(id);
-          $("#users_nama").val(name);
-          $("#users_nomorhp").val(hp);
-          $("#users_alamat").val(alamat);
-          $("#users_departemen").val(departemen);
-          $("#form-edit").attr("action","data-user/"+id);
+            // fill the data in the input fields
+            $("#users_nomor_id").val(id);
+            $("#users_nama").val(name);
+            $("#users_nomorhp").val(hp);
+            $("#users_alamat").val(alamat);
+            $("#users_departemen").val(departemen);
+            $("#form-edit").attr("action","data-user/"+id);
 
-        })
+          })
 
-        // on modal hide
-        $('#edituser').on('hide.bs.modal', function() {
-          $('.edit-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
-          $("#edit-form").trigger("reset");
-        })
-      })
+          // on modal hide
+          $('#edituser').on('hide.bs.modal', function() {
+            $('.edit-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
+            $("#edit-form").trigger("reset");
+          })
+          })
+        </script>
+        <!-- END EDIT SCRIPT -->
 
+        <!-- DELETE SCRIPT -->
+        <script type="text/javascript">
+          $(document).ready(function() {
+          /**
+           * for showing edit item popup
+           */
 
-      </script>
+          $(document).on('click', "#delete-item", function() {
+            $(this).addClass('delete-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+
+            var options = {
+              'backdrop': 'static'
+            };
+            $('#deleteModal').modal(options)
+          })
+
+          // on modal show
+          $('#deleteModal').on('show.bs.modal', function() {
+            var el = $(".delete-item-trigger-clicked"); // See how its usefull right here? 
+            var row = el.closest(".data-row");
+
+            // get the data
+            var id = el.data('item-id');
+
+            // fill the data in the input fields
+            $("#users_nomor_id").val(id);
+
+            $("#delete-form").attr("action","data-user/"+id);
+
+          })
+
+          // on modal hide
+          $('#deleteModal').on('hide.bs.modal', function() {
+            $('.delete-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
+            $("#edit-form").trigger("reset");
+          })
+          })
+        </script>
+        <!-- END DELETE SCRIPT -->
       </footer>
     </div>
     <!-- End of Content Wrapper -->
@@ -427,17 +469,26 @@
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">HAPUS</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Apakah anda yakin menghapus catatan ini?</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-        <a id="btn-delete" class="btn btn-danger" href="#">Hapus</a>
-      </div>
+      <form id="delete-form" method="post">
+        {{-- <input name="_method" type="hidden" value="delete"> --}}
+        @csrf
+        <input name="_method" type="hidden" value="DELETE">
+        {{-- <input class="form-control hidden" type="text" name="id" value="{{ $user->id }}" disabled> --}}
+        <div class="modal-header">
+          {{-- <input type="hidden" id="users_nomor_id" name="users_nomor_id" class="form-control" readonly> --}}
+          <h5 class="modal-title" id="exampleModalLabel">HAPUS</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Apakah anda yakin menghapus catatan ini?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+          <button id="btnSubmit" type="submit" class="btn btn-danger" name="btnSubmit" >HAPUS</button>
+          {{-- <a id="btn-delete" >Hapus</a> --}}
+        </div>
+      </form>
+      
     </div>
   </div>
 </div>
