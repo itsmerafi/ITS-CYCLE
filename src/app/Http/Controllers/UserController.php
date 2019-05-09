@@ -108,13 +108,4 @@ class UserController extends Controller
         return redirect()->route('data-user.index');
     }
 
-    // public function delete($id)
-    // {
-    //     //
-    //     dd($id);
-    //     $data = User::find($id);
-    //     $data->delete();
-
-    //     return redirect()->route('data-user.index');
-    // }
 }

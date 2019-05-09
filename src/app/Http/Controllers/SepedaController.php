@@ -108,8 +108,14 @@ class SepedaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
         //
+        // dd($id);
+
+        $data = Sepeda::find($id);
+        $data->delete();
+
+        return redirect()->route('sepeda.index');
     }
 }

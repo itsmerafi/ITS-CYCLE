@@ -137,7 +137,7 @@
                       <th style="max-width: 80px; min-width: 80px">Model</th>
                       <th style="max-width: 60px; min-width: 60px">Tanggal Beli</th>
                       <th style="max-width: 50px; min-width: 50px">Status</th>
-                      <th style="max-width: 50px; min-width: 50px">Menu</th>
+                      <th style="max-width: 60px; min-width: 60px">Menu</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -146,12 +146,12 @@
                     @foreach($data as $datas)
                     <tr>
                       <td style="max-width: 10px; min-width: 10px"><?php echo $x; $x=$x+1; ?></td>
-                      <td style="max-width: 10px; min-width: 10px">{{$datas->id}}</td>
-                      <td class="pos" style="max-width: 50px; min-width: 50px">{{$datas->pos_id}}</td>
+                      <td style="max-width: 50px; min-width: 50px">{{$datas->id}}</td>
+                      <td class="pos" style="max-width: 20px; min-width: 20px">{{$datas->pos_id}}</td>
                       <td class="Model" style="max-width: 80px; min-width: 80px">{{$datas->sepedas_model}}</td>
                       <td class="Tanggal" style="max-width: 20px; min-width: 20px">{{$datas->sepedas_tanggal_beli}}</td>
-                      <td class="status" style="max-width: 20px; min-width: 20px">{{$datas->sepedas_is_available}}</td>
-                      <td style="max-width: 50px; min-width: 50px">
+                      <td class="status" style="max-width: 10px; min-width: 10px">{{$datas->sepedas_is_available}}</td>
+                      <td style="max-width: 60px; min-width: 60px">
                          <button type="button" class="btn-sm btn-secondary" id="edit-item" data-item-id="{{$datas->id}}"><i class="fas fa-cog"></i></i>EDIT</button>
                         <button type="button" class="btn-sm btn-danger" id="delete-item" data-item-id="{{$datas->id}}">
                           <i class="fas fa-trash"></i>HAPUS</button>
@@ -221,6 +221,7 @@
         <!-- Page level custom scripts -->
         <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
+        <!-- EDIT SCRIPT -->
         <script type="text/javascript">
         $(document).ready(function() {
         /**
@@ -245,15 +246,11 @@
           var id = el.data('item-id');
           var pos = row.children(".pos").text();
           var status = row.children(".status").text();
-          // var alamat = row.children(".alamat").text();
-          // var departemen = row.children(".departemen").text();
 
           // fill the data in the input fields
           $("#nomor_id").val(id);
           $("#pos_lokasi").val(pos);
           $("#pos_status").val(status);
-          // $("#users_alamat").val(alamat);
-          // $("#users_departemen").val(departemen);
           $("#form-edit").attr("action","sepeda/"+id);
 
         })
@@ -264,9 +261,48 @@
           $("#edit-form").trigger("reset");
         })
       })
-
-
       </script>
+      <!-- END EDIT SCRIPT -->
+
+      <!-- DELETE SCRIPT -->
+        <script type="text/javascript">
+          $(document).ready(function() {
+          /**
+           * for showing edit item popup
+           */
+
+          $(document).on('click', "#delete-item", function() {
+            $(this).addClass('delete-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+
+            var options = {
+              'backdrop': 'static'
+            };
+            $('#deleteModal').modal(options)
+          })
+
+          // on modal show
+          $('#deleteModal').on('show.bs.modal', function() {
+            var el = $(".delete-item-trigger-clicked"); // See how its usefull right here? 
+            var row = el.closest(".data-row");
+
+            // get the data
+            var id = el.data('item-id');
+
+            // fill the data in the input fields
+            $("#users_nomor_id").val(id);
+
+            $("#delete-form").attr("action","sepeda/"+id);
+
+          })
+
+          // on modal hide
+          $('#deleteModal').on('hide.bs.modal', function() {
+            $('.delete-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
+            $("#edit-form").trigger("reset");
+          })
+          })
+        </script>
+        <!-- END DELETE SCRIPT -->
 
       </footer>
       <!-- End of Footer -->
@@ -414,21 +450,30 @@
 </div>
 <!-- END MODAL EDIT -->
     {{-- </div> --}}
-<!-- END MODAL DELETE -->
+<!-- MODAL DELETE -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">HAPUS</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Apakah anda yakin menghapus catatan ini?</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-        <a id="btn-delete" class="btn btn-danger" href="#">Hapus</a>
-      </div>
+      <form id="delete-form" method="post">
+        {{-- <input name="_method" type="hidden" value="delete"> --}}
+        @csrf
+        <input name="_method" type="hidden" value="DELETE">
+        {{-- <input class="form-control hidden" type="text" name="id" value="{{ $user->id }}" disabled> --}}
+        <div class="modal-header">
+          {{-- <input type="hidden" id="users_nomor_id" name="users_nomor_id" class="form-control" readonly> --}}
+          <h5 class="modal-title" id="exampleModalLabel">HAPUS</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Apakah anda yakin menghapus catatan ini?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+          <button id="btnSubmit" type="submit" class="btn btn-danger" name="btnSubmit" >HAPUS</button>
+          {{-- <a id="btn-delete" >Hapus</a> --}}
+        </div>
+      </form>
+      
     </div>
   </div>
 </div>
