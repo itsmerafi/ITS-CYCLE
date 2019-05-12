@@ -49,7 +49,6 @@ Route::get('/hak', function () {
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/form-peminjaman','PeminjamanController@form')->name('peminjaman.form');
 Route::post('peminjaman/form', 'PeminjamanController@form')->name('peminjaman.form');
