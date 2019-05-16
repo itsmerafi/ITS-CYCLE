@@ -52,7 +52,7 @@
       </li>
       <hr class="sidebar-divider my-0">
       <li class="nav-item ">
-        <a class="nav-link" href="{{ route('peminjaman.index')}}">
+        <a class="nav-link" href="{{ route('data-peminjaman.index')}}">
           <i class="fas fa-database"></i>
           <span>Data Peminjaman </span>
         </a>

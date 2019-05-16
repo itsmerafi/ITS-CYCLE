@@ -29,9 +29,11 @@ Route::middleware(['admin'])->group(function() {
 	Route::get('/dashboard','DashboardController@index')->name('dashboard.index');
 	Route::post('/dashboard','DashboardController@index')->name('dashboard.index');
 
-	Route::get('/data-peminjaman','PeminjamanController@index')->name('peminjaman.index');
-	Route::post('/data-peminjaman','PeminjamanController@index')->name('peminjaman.index');
-	Route::resource('peminjaman','PeminjamanController');
+	Route::resource('data-peminjaman','DataPeminjamanController');
+
+	// Route::get('/data-peminjaman','PeminjamanController@index')->name('peminjaman.index');
+	// Route::post('/data-peminjaman','PeminjamanController@index')->name('peminjaman.index');
+	// Route::resource('peminjaman','PeminjamanController');
 	// Route::get('/form-peminjaman','PeminjamanController@form')->name('peminjaman.form');
 	// Route::post('/form-peminjaman','PeminjamanController@form')->name('peminjaman.form');
 	Route::resource('sepeda','SepedaController');
@@ -50,5 +52,6 @@ Route::get('/hak', function () {
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'HomeController@index')->name('index');
-Route::get('/form-peminjaman','PeminjamanController@form')->name('peminjaman.form');
+Route::resource('peminjaman','PeminjamanController');
+Route::get('peminjaman/form','PeminjamanController@form')->name('peminjaman.form');
 Route::post('peminjaman/form', 'PeminjamanController@form')->name('peminjaman.form');

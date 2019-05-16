@@ -86,7 +86,7 @@ img{
 
             <div class="form-group">
               <label>ID Sepeda</label>
-              <input type="text" class="form-control"  value="{{$id}}" readonly name="id">
+              <input type="text" class="form-control"  value="{{$id}}" readonly name="sepedas_id">
             </div>
             <div class="form-group">
               <label>MODEL Sepeda</label>
@@ -94,7 +94,8 @@ img{
             </div>
             <div class="form-group">
               <label>POS Peminjaman</label>
-              <input type="text" class="form-control" value="{{$sepeda->pos->pos_lokasi}}" readonly name="pos_lokasi">
+              <input type="text" class="form-control" value="{{$sepeda->pos->pos_lokasi}}" disabled>
+              <input type="hidden" class="form-control" value="{{$sepeda->pos_id}}" name="pos_lokasi">
             </div>
 
 

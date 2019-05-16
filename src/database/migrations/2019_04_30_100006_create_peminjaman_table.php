@@ -13,16 +13,16 @@ class CreatePeminjamanTable extends Migration
      */
     public function up()
     {
-        Schema::create('peminjaman', function (Blueprint $table) {
-            // $table->bigIncrements('id');
-            // $table->increments('id',11);
-            $table->string('mahasiswas_id');
-            $table->string('petugas_id');
+        Schema::create('pinjams', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('users_id');
+            $table->string('petugas_id')->nullable();
+            $table->string('sepedas_id')->reference('id')->on('sepedas');
             $table->integer('pos_id')->reference('id')->on('pos');
-            $table->timestamp('peminjaman_tanggal_meminjam')->nullable();
-            $table->timestamp('peminjaman_tanggal_mengembalikan')->nullable();
-            $table->string('peminjaman_keterangan');
-            $table->string('peminjaman_status');
+            $table->timestamp('pinjams_tanggal_meminjam')->nullable();
+            $table->timestamp('pinjams_tanggal_mengembalikan')->nullable();
+            $table->string('pinjams_keterangan')->nullable();
+            $table->string('pinjams_status')->nullable();
             // $table->primary('id');
             // $table->timestamps();
         });
@@ -42,6 +42,6 @@ class CreatePeminjamanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('peminjaman');
+        Schema::dropIfExists('pinjams');
     }
 }

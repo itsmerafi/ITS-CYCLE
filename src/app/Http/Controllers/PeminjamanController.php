@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 use App\Sepeda;
 use App\Peminjaman;
-use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class PeminjamanController extends Controller
 {
@@ -18,7 +19,7 @@ class PeminjamanController extends Controller
     public function index()
     {
         //
-        return view('data-peminjaman');
+        // return view('data-peminjaman');
     }
 
     /**
@@ -46,16 +47,33 @@ class PeminjamanController extends Controller
 //        if(sepedas_is_available!='Baik'){
 //                return redirect('/data-peminjaman')->with(errorMsg,"Sepeda sedang digunakkan");
 //        }else {
-            $user_id = Auth::id();
-            $user = User::where('users_nomor_id','=',Auth::id())->get();
-            dd($user);
-            if($user->isAdmin ==1){
-                Peminjaman::create($request->all());
-                return redirect('/data-peminjaman');
+        $user_id = Auth::id();
+        $pinjam = Carbon::now();
+            // $user = User::where('users_nomor_id','=',$user_id)->get();
+            // Peminjaman::create($request->all() + ['id_users' => $user_id, 
+            //                                     'data_user_id' => $data_users->id,
+            //                                     ''
+            //                                     ]);
+        // dd($pinjam); #SEPEDA ID, POS LOKASI, SEPEDA MODEL
+        $pinjams = new Peminjaman();
+        $pinjams->users_id = $user_id;
+        $pinjams->sepedas_id = $request->sepedas_id;
+        $pinjams->pos_id = $request->pos_lokasi;
+        $pinjams->pinjams_tanggal_meminjam = $pinjam;
+        // $pinjams->pinjams_tanggal_mengembalikan = $file->work_orders_id;
+        // $pinjams->pinjams_keteragan = $file->work_orders_id;
+        $pinjams->pinjams_status = 1;
 
-            }else{
-                return redirect('/data-peminjaman')->with(errorMsg,"anda kontol");
-            }
+        $pinjams->save();
+
+        return redirect('/');
+            // if($user->isAdmin ==1){
+            //     Peminjaman::create($request->all()+ ['WO_pemohon' => $data_users->DU_nama, 'data_user_id' => $data_users->id]);
+            //     return redirect('/data-peminjaman');
+
+            // }else{
+            //     return redirect('/data-peminjaman')->with(errorMsg,"anda kontol");
+            // }
 //        }
     }
 
