@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Sepeda;
 use App\Peminjaman;
+use Illuminate\Support\Facades\Auth;
 
 class PeminjamanController extends Controller
 {
@@ -39,11 +41,22 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = Peminjaman::new()
-        // $id = $request->all();
-        // dd($id);
-        // $create = Peminjaman::create($request->all())
+//        $request->id;
+//        $query='SELECT sepedas_is_available FROM sepedas WHERE sepedas.id = ';
+//        if(sepedas_is_available!='Baik'){
+//                return redirect('/data-peminjaman')->with(errorMsg,"Sepeda sedang digunakkan");
+//        }else {
+            $user_id = Auth::id();
+            $user = User::where('users_nomor_id','=',Auth::id())->get();
+            dd($user);
+            if($user->isAdmin ==1){
+                Peminjaman::create($request->all());
+                return redirect('/data-peminjaman');
 
+            }else{
+                return redirect('/data-peminjaman')->with(errorMsg,"anda kontol");
+            }
+//        }
     }
 
     /**
