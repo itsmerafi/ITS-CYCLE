@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pos;
 use App\User;
+use App\Peminjaman;
 
 class DashboardController extends Controller
 {
@@ -16,9 +17,10 @@ class DashboardController extends Controller
     public function index()
     {
         //
+        $konfirmasi = Peminjaman::where('pinjams_status',1)->count();
         $data = Pos::orderBy('pos_is_active')->get();
 
-        return view('dashboard',compact('data'));
+        return view('dashboard',compact('data','konfirmasi'));
     }
 
     /**

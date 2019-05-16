@@ -125,18 +125,78 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th style="max-width: 15px; min-width: 15px">No</th>
-                      <th style="max-width: 85px; min-width: 85px">Peminjam</th>
-                      <th style="max-width: 80px; min-width: 80px">Petugas Konfirmasi</th>
-                      <th style="max-width: 15px; min-width: 15px">Pos</th>
-                      <th style="max-width: 60px; min-width: 60px">Tanggal Pinjam</th>
-                      <th style="max-width: 60px; min-width: 60px">Tanggal Kembali</th>
-                      <th style="max-width: 70px; min-width: 70px">Keterangan</th>
-                      <th style="max-width: 70px; min-width: 70px">Status</th>
-                      <th style="max-width: 30px; min-width: 30px">Menu</th>
+                      <th style="width:4%">No</th>
+                      <th style="width:15%">Peminjam</th>
+                      <th style="width:15%">Petugas Konfirmasi</th>
+                      <th style="width:10%">Pos</th>
+                      <th style="width:12%">Tanggal Pinjam</th>
+                      <th style="width:12%">Tanggal Kembali</th>
+                      <th style="width:12%">Keterangan</th>
+                      <th style="width:12%">Status</th>
+                      <th style="width:8%">Menu</th>
                     </tr>
                   </thead>  
                   <tbody>
+                    <?php $x=1; ?>
+                    @foreach($data as $key => $datas)
+                      <tr>
+                        <tr>
+                        <td style="max-width: 15px; min-width: 15px"><?php echo $x; $x=$x+1; ?></td>
+                        <td style="max-width: 80px; min-width: 80px">{{$datas->users_id}}</td>
+                        <td style="max-width: 80px; min-width: 80px">
+                          @if (is_null($datas->petugas_id))
+                            Belum Tersedia
+                          @else
+                            {{$datas->userpetugas->users_nama}}
+                          @endif
+                          
+                        </td>
+                        <td style="max-width: 80px; min-width: 80px">{{$datas->pos->pos_lokasi}}</td>
+                        <td style="max-width: 15px; min-width: 15px">{{$datas->pinjams_tanggal_meminjam}}</td>
+                        <td style="max-width: 60px; min-width: 60px">
+                          @if (is_null($datas->pinjams_tanggal_mengembalikan))
+                            Belum Tersedia
+                          @else
+                            {{$datas->pinjams_tanggal_mengembalikan}}
+                          @endif
+                        </td>
+                        <td style="max-width: 60px; min-width: 60px">
+                          @if (is_null($datas->pinjams_keterangan))
+                            Belum Tersedia
+                          @else
+                            {{$datas->pinjams_keterangan}}
+                          @endif
+                        </td>
+
+                        </td>
+                        <td style="max-width: 70px; min-width: 70px">
+                          Telah Dikembalikan
+                        <!-- macam-macam status:
+                        Telah Dipinjam + Button Konfirmasi
+                        Sedang dipinjam 
+                        Telah Dikembaliikan + Button Konfirmasi
+                        Telah Kembali -->
+                          <button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#confirmKembali">
+                            <span class="icon text-white-50">
+                              <i class="fas fa-check-circle"></i>
+                            </span>
+                            <span class="text">Konfirmasi</span>
+                          </button>
+
+                        </td>
+                        <td style="max-width: 30px; min-width: 30px">
+                          <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> 
+                          <span class="icon text-white-50">
+                            <i class="fas fa-trash"></i>
+                            </span>
+                            <span class="text">Hapus</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                  {{-- <tbody>
                     <tr>
                       <td style="max-width: 15px; min-width: 15px">1</td>
                       <td style="max-width: 80px; min-width: 80px">05111640000043</td>
@@ -210,7 +270,7 @@
                         <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
                       </td>
                     </tr>                  
-                  </tbody>
+                  </tbody> --}}
                 </table>
               </div>
             </div>

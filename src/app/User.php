@@ -56,6 +56,16 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Pos');
     }
+
+    public function pinjamsmhs()
+    {
+        return $this->hasMany('App\Peminjaman');
+    }
+
+    public function pinjamspetugas()
+    {
+        return $this->hasMany('App\Peminjaman');
+    }
 }
 
 // class User extends Eloquent {

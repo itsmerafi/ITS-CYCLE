@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Peminjaman;
 
 class DataPeminjamanController extends Controller
 {
@@ -14,7 +15,10 @@ class DataPeminjamanController extends Controller
     public function index()
     {
         //
-        return view('data-peminjaman');
+        $data = Peminjaman::where('pinjams_status',1)->get();
+        // dd($data);
+
+        return view('data-peminjaman',compact('data'));
     }
 
     /**

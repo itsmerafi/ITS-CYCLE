@@ -22,4 +22,9 @@ class Pos extends Model
     {
         return $this->hasMany('App\Sepeda');
     }
+
+    public function pinjams()
+    {
+        return $this->hasMany('App\Peminjaman');
+    }
 }
