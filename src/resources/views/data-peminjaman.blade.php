@@ -142,7 +142,7 @@
                       <tr>
                         <tr>
                         <td style="max-width: 15px; min-width: 15px"><?php echo $x; $x=$x+1; ?></td>
-                        <td style="max-width: 80px; min-width: 80px">{{$datas->users_id}}</td>
+                        <td style="max-width: 80px; min-width: 80px">{{$datas->usermhs->users_nama}}</td>
                         <td style="max-width: 80px; min-width: 80px">
                           @if (is_null($datas->petugas_id))
                             Belum Tersedia
@@ -170,18 +170,38 @@
 
                         </td>
                         <td style="max-width: 70px; min-width: 70px">
+                          @if ($datas->pinjams_status==1)
+                            Belum Dikonfirmasi
+                            <button type="button" class="btn-sm btn-primary btn-icon-split" id="pinjam-item" data-item-id="{{$datas->id}}">
+                            {{-- <button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#confirmPinjam"> --}}
+                              <span class="icon text-white-50">
+                                <i class="fas fa-check-circle"></i>
+                              </span>
+                              <span class="text">Konfirmasi</span>
+                            </button>
+                          @elseif($datas->pinjams_status==2)
+                            Belum Dikonfirmasi
+                            <button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#confirmKembali">
+                              <span class="icon text-white-50">
+                                <i class="fas fa-check-circle"></i>
+                              </span>
+                              <span class="text">Konfirmasi</span>
+                            </button>
+                          @else
                           Telah Dikembalikan
+                          @endif
+                          
                         <!-- macam-macam status:
                         Telah Dipinjam + Button Konfirmasi
                         Sedang dipinjam 
                         Telah Dikembaliikan + Button Konfirmasi
                         Telah Kembali -->
-                          <button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#confirmKembali">
+{{--                           <button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#confirmKembali">
                             <span class="icon text-white-50">
                               <i class="fas fa-check-circle"></i>
                             </span>
                             <span class="text">Konfirmasi</span>
-                          </button>
+                          </button> --}}
 
                         </td>
                         <td style="max-width: 30px; min-width: 30px">
@@ -196,81 +216,7 @@
                     </tr>
                     @endforeach
                   </tbody>
-                  {{-- <tbody>
-                    <tr>
-                      <td style="max-width: 15px; min-width: 15px">1</td>
-                      <td style="max-width: 80px; min-width: 80px">05111640000043</td>
-                      <td style="max-width: 80px; min-width: 80px">Muhammad Arrafi</td>
-                      <td style="max-width: 15px; min-width: 15px">1</td>
-                      <td style="max-width: 60px; min-width: 60px">07.00 01-01-2019</td>
-                      <td style="max-width: 60px; min-width: 60px">19.00 01-01-2019</td>
-                      <td style="max-width: 70px; min-width: 70px">Ban Bocor</td>
-                      <td style="max-width: 70px; min-width: 70px">
-                      Telah Dikembalikan
-                      <!-- macam-macam status:
-                      Telah Dipinjam + Button Konfirmasi
-                      Sedang dipinjam 
-                      Telah Dikembaliikan + Button Konfirmasi
-                      Telah Kembali -->
-                        <button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#confirmKembali">
-                          <span class="icon text-white-50">
-                            <i class="fas fa-check-circle"></i>
-                          </span>
-                          <span class="text">Konfirmasi</span>
-                        </button>
-                      </td>
-                      <td style="max-width: 30px; min-width: 30px">
-                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="max-width: 15px; min-width: 15px">1</td>
-                      <td style="max-width: 80px; min-width: 80px">05111640000043</td>
-                      <td style="max-width: 80px; min-width: 80px">Muhammad Arrafi</td>
-                      <td style="max-width: 15px; min-width: 15px">1</td>
-                      <td style="max-width: 60px; min-width: 60px">07.00 01-01-2019</td>
-                      <td style="max-width: 60px; min-width: 60px">19.00 01-01-2019</td>
-                      <td style="max-width: 70px; min-width: 70px">Ban Bocor</td>
-                      <td style="max-width: 70px; min-width: 70px">Telah Kembali</td>
-                      <td style="max-width: 30px; min-width: 30px">
-                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td style="max-width: 15px; min-width: 15px">1</td>
-                      <td style="max-width: 80px; min-width: 80px">05111640000043</td>
-                      <td style="max-width: 80px; min-width: 80px">Muhammad Arrafi</td>
-                      <td style="max-width: 15px; min-width: 15px">1</td>
-                      <td style="max-width: 60px; min-width: 60px">07.00 01-01-2019</td>
-                      <td style="max-width: 60px; min-width: 60px">19.00 01-01-2019</td>
-                      <td style="max-width: 70px; min-width: 70px">Ban Bocor</td>
-                      <td style="max-width: 70px; min-width: 70px">Telah Dipinjam
-                        <a href="#" class="btn-sm btn-primary btn-icon-split"  data-toggle="modal" data-target="#confirmPinjam">
-                          <span class="icon text-white-50">
-                            <i class="fas fa-check-circle"></i>
-                          </span>
-                          <span class="text">Konfirmasi</span>
-                        </a>
-                      </td>
-                      <td style="max-width: 30px; min-width: 30px">
-                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="max-width: 15px; min-width: 15px">1</td>
-                      <td style="max-width: 80px; min-width: 80px">05111640000043</td>
-                      <td style="max-width: 80px; min-width: 80px">Muhammad Arrafi</td>
-                      <td style="max-width: 15px; min-width: 15px">1</td>
-                      <td style="max-width: 60px; min-width: 60px">07.00 01-01-2019</td>
-                      <td style="max-width: 60px; min-width: 60px">19.00 01-01-2019</td>
-                      <td style="max-width: 70px; min-width: 70px">Ban Bocor</td>
-                      <td style="max-width: 70px; min-width: 70px">Sedang Dipinjam</td>
-                      <td style="max-width: 30px; min-width: 30px">
-                        <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> <i class="fas fa-trash"></i></button>
-                      </td>
-                    </tr>                  
-                  </tbody> --}}
+                  
                 </table>
               </div>
             </div>
@@ -309,6 +255,7 @@
           </div>
         </div>
         <!--END MODAL LOGOUT-->
+
         
         <!--?php require_once 'footer.php'  ?---> 
           <!-- Scroll to Top Button-->
@@ -331,6 +278,46 @@
 
         <!-- Page level custom scripts -->
         <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
+
+        <!-- DELETE SCRIPT -->
+        <script type="text/javascript">
+          $(document).ready(function() {
+          /**
+           * for showing edit item popup
+           */
+
+          $(document).on('click', "#pinjam-item", function() {
+            $(this).addClass('pinjam-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+
+            var options = {
+              'backdrop': 'static'
+            };
+            $('#confirmPinjam').modal(options)
+          })
+
+          // on modal show
+          $('#confirmPinjam').on('show.bs.modal', function() {
+            var el = $(".pinjam-item-trigger-clicked"); // See how its usefull right here? 
+            var row = el.closest(".data-row");
+
+            // get the data
+            var id = el.data('item-id');
+
+            // fill the data in the input fields
+            $("#users_id").val(id);
+
+            $("#pinjam-form").attr("action","data-peminjaman/"+id);
+
+          })
+
+          // on modal hide
+          $('#confirmPinjam').on('hide.bs.modal', function() {
+            $('.pinjam-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
+            $("#edit-form").trigger("reset");
+          })
+          })
+        </script>
+        <!-- END DELETE SCRIPT -->
 
       </footer>
       <!-- End of Footer -->
@@ -369,16 +356,24 @@
 <div class="modal fade" id="confirmPinjam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-check-circle" style="color: blue"></i></i>Konfirmasi Peminjaman</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Apakah peminjam mengetahui peminjaman ini?</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-        <a id="btn-delete" class="btn btn-danger" href="#">Ya</a>
+      <form id="pinjam-form" method="post">
+        {{-- <input name="_method" type="hidden" value="delete"> --}}
+        @csrf
+        <input name="_method" type="hidden" value="PATCH">
+        {{-- <input class="form-control hidden" type="text" name="id" value="{{ $user->id }}" disabled> --}}
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-check-circle" style="color: blue"></i></i>Konfirmasi Peminjaman</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Apakah peminjam mengetahui peminjaman ini?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+          <button id="btn-delete" class="btn btn-danger" class="btn btn-danger" name="btnSubmit" >Ya</button>
+          {{-- <a id="btn-delete" >Hapus</a> --}}
+        </div>
+      </form>
       </div>
     </div>
   </div>
@@ -397,8 +392,15 @@
       </div>
       <div class="modal-body">Apakah sepeda telah anda terima di POS?</div>
       <div class="modal-footer">
+        {{-- <form action="{{ route('data-peminjaman.update', $workorders->id)}}" method="POST">
+          @csrf
+          <input name="_method" type="hidden" value="PATCH">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+          <a id="btn-delete" class="btn btn-danger" href="#">Ya</a>
+
+        </form> --}}
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-        <a id="btn-delete" class="btn btn-danger" href="#">Ya</a>
+          <a id="btn-delete" class="btn btn-danger" href="#">Ya</a>
       </div>
     </div>
   </div>

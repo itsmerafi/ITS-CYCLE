@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Peminjaman;
 
 class DataPeminjamanController extends Controller
@@ -15,7 +16,7 @@ class DataPeminjamanController extends Controller
     public function index()
     {
         //
-        $data = Peminjaman::where('pinjams_status',1)->get();
+        $data = Peminjaman::all();
         // dd($data);
 
         return view('data-peminjaman',compact('data'));
@@ -74,6 +75,17 @@ class DataPeminjamanController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = Peminjaman::all();
+
+        $user_id = Auth::id();
+        $pinjams = Peminjaman::find($id);
+
+        $pinjams->pinjams_status = 2;
+        $pinjams->petugas_id = $user_id;
+        $pinjams->save();
+
+        return view('data-peminjaman',compact('data'));
+        // dd($user_id);
     }
 
     /**
