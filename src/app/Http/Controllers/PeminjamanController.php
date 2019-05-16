@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Sepeda;
 use App\Peminjaman;
@@ -42,20 +43,29 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        $query="SELECT sepedas_is_available FROM sepedas WHERE sepedas.id ='$request->id'  ";
-        $availability = DB::select($query);
-        if($availability!='Baik'){
-                return redirect('/data-peminjaman')->with(errorMsg,"Sepeda sedang digunakkan");
+        $query=Sepeda::find($request->sepedas_id);
+        $query = $query->sepedas_is_available;
+//        dd($query->sepedas_is_available00);
+        if($query!='Baik'){
+            return redirect('/data-peminjaman')->with('error', 'Sepeda tidak tersedia');
         }else {
-            $user_id = Auth::id();
-            $user = User::where('users_nomor_id','=',Auth::id())->get();
-//            dd($request->all());
-            if($user->isAdmin ==1){
-                Peminjaman::create($request->all());
-                return redirect('/data-peminjaman');
-
+            $user = User::where('users_nomor_id','=',Auth::id())->first();
+//            dd($user);
+            if($user->isAdmin == 1){
+                $user_id = Auth::id();
+                $pinjam = Carbon::now();
+                $pinjams = new Peminjaman();
+                $pinjams->users_id = $user_id;
+                $pinjams->sepedas_id = $request->sepedas_id;
+                $pinjams->pos_id = $request->pos_lokasi;
+                $pinjams->pinjams_tanggal_meminjam = $pinjam;
+                // $pinjams->pinjams_tanggal_mengembalikan = $file->work_orders_id;
+                // $pinjams->pinjams_keteragan = $file->work_orders_id;
+                $pinjams->pinjams_status = 1;
+                $pinjams->save();
+                return redirect('/')->with('success', 'your message,here');  ;
             }else{
-                return redirect('/data-peminjaman')->with(errorMsg,"anda kontol");
+                return redirect('/data-peminjaman')->with('error', 'Hubungi SKK untuk peminjaman sepeda');
             }
         }
     }
