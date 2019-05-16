@@ -41,7 +41,7 @@ class LoginController extends Controller
         // if(auth()->user()->default())
         //   {
         //     return redirect('/');
-    
+
         //   }
         if(auth()->user()->Admin())
           {

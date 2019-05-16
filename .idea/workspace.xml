@@ -1,101 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/routes/web.php" line="50" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="93379915-0ccb-442b-88bc-510ec0b6328f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/resources/views/dashboard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/views/data-peminjaman.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/views/footer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/views/form-pengembalian.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/views/form-pinjam.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/views/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/views/loginmhs.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/views/manage-cycle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/views/manage-user.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/views/navbar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/views/notifikasi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Home/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Home/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Home/iconfont.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Home/jquery.fancybox.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Home/magnific-popup.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Home/plugins.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Home/responsive.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Home/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Login/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Login/style2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/sb-admin-2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/sb-admin-2.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bootstrapThemesCo-icon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bootstrapThemesCo-icon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bootstrapThemesCo-icon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bootstrapThemesCo-icon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/montserrat-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/montserrat-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/montserrat-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/montserrat-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/raleway-regular-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/raleway-regular-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/raleway-regular-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/raleway-regular-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/153-0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/abright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/ch_col_icn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/ch_col_icn_h.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/denah.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/fancybox/fancybox_loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/fancybox/fancybox_loading@2x.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/fancybox/fancybox_overlay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/fancybox/fancybox_sprite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/featureslid1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/homebg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/iconbg1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/iconbg1h.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/iconbg2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/iconbgh2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/info_iconbg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/loading.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/mapbg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/phone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/skmenubg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/skmenubgh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/stab1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/stabmenubg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Home/stabmenubghv.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Login/avatar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Login/image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bell.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/daun.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/eco-campus-ITS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/spring-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/undraw_posting_photo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/gmaps.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/jquery.easing.1.3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/jquery.fancybox.pack.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/jquery.magnific-popup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/jquery.masonry.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/jquery.mixitup.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/plugins.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/vendor/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/vendor/jquery-1.11.2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/Home/vendor/modernizr-2.8.3-respond-1.4.2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/demo/chart-area-demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/demo/chart-bar-demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/demo/chart-pie-demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/demo/datatables-demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/sb-admin-2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/sb-admin-2.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/PeminjamanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/PeminjamanController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,46 +20,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/views/welcome.blade.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/Http/Controllers/PeminjamanController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            <state relative-caret-position="272">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
               <folding>
-                <element signature="n#style#0;n#button#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h6#0;n#div#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#div#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#40#53#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/web.php">
+        <entry file="file://$PROJECT_DIR$/src/app/Peminjaman.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/resources/views/form-pinjam.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+            <state relative-caret-position="187">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/views/dashboard.php">
+        <entry file="file://$PROJECT_DIR$/src/app/Http/Controllers/UserController.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+            <state relative-caret-position="68">
+              <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/Http/Middleware/Admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -165,17 +77,31 @@
       <find>index</find>
       <find>admin 2</find>
       <find>admi</find>
+      <find>NOMOR ID</find>
+      <find>dashb</find>
+      <find>Admin</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="FAIQ-ROG &lt;karyoutomoo@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/resources/views/welcome.blade.php" />
-        <option value="$PROJECT_DIR$/src/routes/web.php" />
         <option value="$PROJECT_DIR$/src/resources/views/form-pinjam.blade.php" />
+        <option value="$PROJECT_DIR$/src/.env" />
+        <option value="$PROJECT_DIR$/src/routes/web.php" />
+        <option value="$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php" />
+        <option value="$PROJECT_DIR$/src/app/Http/Controllers/Auth/LoginController.php" />
+        <option value="$PROJECT_DIR$/src/app/Peminjaman.php" />
+        <option value="$PROJECT_DIR$/src/resources/views/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/src/app/Http/Controllers/PeminjamanController.php" />
       </list>
     </option>
   </component>
@@ -269,7 +195,7 @@
       <path value="$PROJECT_DIR$/src/vendor/bootstrap/scss" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1385" />
@@ -280,6 +206,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -290,12 +217,65 @@
             <path>
               <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
               <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
-              <item name="MOCKUP" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
               <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
@@ -314,29 +294,36 @@
               <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
               <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ITS-CYCLE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ITS-CYCLE" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../web-tree-of-heroes" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\ITS-CYCLE\src\public" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\ITS-CYCLE\src\resources\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ITS-CYCLE\src\public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -362,18 +349,35 @@
       <option name="presentableId" value="Default" />
       <updated>1556431621326</updated>
       <workItem from="1556431622485" duration="3414000" />
-      <workItem from="1556443035525" duration="4284000" />
+      <workItem from="1556443035525" duration="5639000" />
+      <workItem from="1557559119219" duration="967000" />
+      <workItem from="1557568566332" duration="417000" />
+      <workItem from="1557571987548" duration="606000" />
+      <workItem from="1557641656963" duration="5467000" />
+      <workItem from="1557662862672" duration="599000" />
+      <workItem from="1557719549970" duration="84000" />
+      <workItem from="1557884443964" duration="1934000" />
+      <workItem from="1557986708338" duration="22000" />
+      <workItem from="1558012823111" duration="3519000" />
     </task>
+    <task id="LOCAL-00001" summary="table name + store pinjam">
+      <created>1558014510283</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1558014510283</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7698000" />
+    <option name="totallyTimeSpent" value="22668000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2196162" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -386,10 +390,11 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -398,6 +403,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="table name + store pinjam" />
+    <option name="LAST_COMMIT_MESSAGE" value="table name + store pinjam" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/MOCKUP/dashboard.php">
@@ -410,53 +419,176 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/views/dashboard.php">
+    <entry file="file://$PROJECT_DIR$/src/resources/views/header.blade.php" />
+    <entry file="file://$PROJECT_DIR$/src/resources/views/dashboard.php" />
+    <entry file="file://$PROJECT_DIR$/src/resources/views/loginmhs_old.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-        </state>
+        <state relative-caret-position="-1102" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/views/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/app/Providers/AuthServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/views/loginmhs.blade.php">
+    <entry file="file://$PROJECT_DIR$/src/.env.example">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="187">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/views/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="272">
           <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h6#0;n#div#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#div#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/src/database/seeds/SepedaSeeder.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/seeds/PosSeeder.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/seeds/DepartemenSeeder.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+        <state relative-caret-position="238">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/seeds/UserSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Http/Controllers/Auth/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="145" column="28" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/views/form-pinjam.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+        <state relative-caret-position="113">
+          <caret line="83" column="48" lean-forward="true" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/views/data-peminjaman.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-969" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/views/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/views/loginmhs.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="97" column="51" selection-start-line="97" selection-start-column="51" selection-end-line="97" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Http/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Http/Controllers/Auth/VerificationController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Http/Controllers/Auth/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+          <folding>
+            <element signature="e#45#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Http/Controllers/DashboardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Http/Middleware/Authenticate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Http/Middleware/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Peminjaman.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/Http/Controllers/PeminjamanController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#40#53#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
