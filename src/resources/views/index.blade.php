@@ -22,9 +22,8 @@
     <link href="{{ asset('css/Home/responsive.css') }}" rel="stylesheet">
 
 
-    <script src="{{asset('js/Home/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script> 
+    <script src="{{asset('js/Home/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
 
-    
 
 </head>
 
@@ -35,7 +34,7 @@
         text-align: center;
         color: #fff;
         letter-spacing: 1px;
-        font-size:0.8125rem;
+        font-size: 0.8125rem;
         margin: 10px;
         background-color: #ff7200;
         transition: .5s;
@@ -45,7 +44,7 @@
 
     }
 
-    .btn-sm:hover{
+    .btn-sm:hover {
         background-color: #ff5000;
     }
 
@@ -62,7 +61,8 @@
                             <div class="container-fluid">
                                 <!-- Brand and toggle get grouped for better mobile display -->
                                 <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                         <span class="sr-only">Toggle navigation</span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
@@ -76,28 +76,37 @@
                                 <!-- Collect the nav links, forms, and other content for toggling -->
 
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                    <ul  class="nav navbar-nav pull-right" >
-                                        <li><button class="btn-sm" style="margin-right: 35px" data-toggle="modal" data-target="#logout">Logout</button></li>
+                                    <ul class="nav navbar-nav pull-right">
+                                        <li>
+                                            <button class="btn-sm" style="margin-right: 35px" data-toggle="modal"
+                                                    data-target="#logout">Logout
+                                            </button>
+                                        </li>
                                     </ul>
-                                    <ul class="nav navbar-nav navbar-left" >
+                                    <ul class="nav navbar-nav navbar-left">
                                         <li><a href="#home">HOME</a></li>
                                         <li><a href="#service">TENTANG</a></li>
                                         <li><a href="#contact">DENAH</a></li>
-                                        <li class="nav-item dropdown no-arrow mx-1" >
-                                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <li class="nav-item dropdown no-arrow mx-1">
+                                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
+                                               role="button" data-toggle="dropdown" aria-haspopup="true"
+                                               aria-expanded="false">
                                                 <i class="fa fa-bell fa-fw"></i>
                                                 <!-- Counter - Alerts -->
                                                 <span class="badge badge-danger badge-counter">3+</span>
                                             </a>
                                             <!-- Dropdown - Alerts -->
-                                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" style="background: white">
+                                            <div
+                                                class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                                aria-labelledby="alertsDropdown" style="background: white">
                                                 <h6 class="dropdown-list-header" style="text-align: center;">
                                                     Alerts Center
                                                 </h6>
-                                                <a class="dropdown-item d-flex align-items-center" href="#" >
+                                                <a class="dropdown-item d-flex align-items-center" href="#">
 
                                                     <div style="padding: 10px">
-                                                        <div class="small text-gray-500" style="font-size: 15px" ><strong>Judul</strong></div>
+                                                        <div class="small text-gray-500" style="font-size: 15px">
+                                                            <strong>Judul</strong></div>
                                                         <span class="font-weight-bold">A new monthly report is ready to download!</span>
                                                     </div>
                                                 </a>
@@ -124,10 +133,19 @@
                                     <h1>SELAMAT DATANG DI ITS CYCLE</h1>
                                     <p>Website peminjaman sepeda kampus di ITS</p>
                                     {{-- <button class="btn btn-alt-success mr-5 mb-5" data-toggle="modal" data-target="#peminjaman"><i class="fa fa-check mr-5"></i>Selesai</button> --}}
-                                    <button data-toggle="modal" data-target="#peminjaman" class="home_btn btn btn-primary" {{-- onclick="window.location.href='{{url('form-pinjam') }}'" --}}>
-                                        PINJAM SEKARANG
-                                    </button>
-                                    <{{-- button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#peminjaman">
+                                    @if($statusPinjaman == 2)
+                                        <button data-toggle="modal" data-target="#pengembalian"
+                                                class="home_btn btn btn-primary">KEMBALIKAN SEPEDA
+                                        </button>
+                                    @else
+                                        <button data-toggle="modal" data-target="#peminjaman"
+                                                class="home_btn btn btn-primary" {{-- onclick="window.location.href='{{url('form-pinjam') }}'" --}}>
+                                            PINJAM SEKARANG
+                                        </button>
+
+                                    @endif
+
+                                    {{-- button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#peminjaman">
                         <span class="icon text-white-50">
                           <i class="fas fa-check-circle"></i>
                         </span>
@@ -167,7 +185,14 @@
                                                             <h3>Apa itu ITS Cycle ?</h3>
                                                             <div class="separator"></div>
                                                         </div>
-                                                        <p>ITS Cycle adalah website yang membantu warga ITS khususnya mahasiswa dalam hal peminjaman sepeda kampus. Seperti yang kita ketahui, saat ini peminjaman sepeda kampus di ITS masih menggunakan sistem manual. ITS Cycle hadir agar memudahkan mahasiswa dalam kegiatan peminjaman sepeda kampus ini. Pengguna dapat mengetahui berapa jumlah sepeda yang tersedia pada setiap pos peminjaman dan tentunya pengguna dapat meiminjam sepeda secara online. </p>
+                                                        <p>ITS Cycle adalah website yang membantu warga ITS khususnya
+                                                            mahasiswa dalam hal peminjaman sepeda kampus. Seperti yang
+                                                            kita ketahui, saat ini peminjaman sepeda kampus di ITS masih
+                                                            menggunakan sistem manual. ITS Cycle hadir agar memudahkan
+                                                            mahasiswa dalam kegiatan peminjaman sepeda kampus ini.
+                                                            Pengguna dapat mengetahui berapa jumlah sepeda yang tersedia
+                                                            pada setiap pos peminjaman dan tentunya pengguna dapat
+                                                            meiminjam sepeda secara online. </p>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -288,25 +313,27 @@
             <form action="{{ route('peminjaman.form') }}" method="post">
                 @csrf
                 <div class="modal-body" style="padding:1rem">
-                   <label>ID SEPEDA</label>
-                   <div>
-                       <div style="width: 26%; height: 50%; float:left;">
-                           <input class="form-control" type="text" disabled="" placeholder="SP">
-                       </div>
-                       <div style="width: 74%; height: 50%; float:right;">
-                           <input class="form-control" type="text" name="id" id="sepeda_id" >
-                       </div>
-                       {{-- <div style="width: 100%; height: 50%; background-color: red; clear:both">-</div> --}}
-                   </div>                   
+                    <label>ID SEPEDA</label>
+                    <div>
+                        <div style="width: 26%; height: 50%; float:left;">
+                            <input class="form-control" type="text" disabled="" placeholder="SP">
+                        </div>
+                        <div style="width: 74%; height: 50%; float:right;">
+                            <input class="form-control" type="text" name="id" id="sepeda_id">
+                        </div>
+                        {{-- <div style="width: 100%; height: 50%; background-color: red; clear:both">-</div> --}}
+                    </div>
                 </div>
                 <!-- Modal footer -->
-                <div class="modal-footer">                  
-                    <div class="row" align="center" >
-                        <button type="button" data-dismiss="modal"  class="btn-sm" style="background-color: grey  ">BATAL</button>
+                <div class="modal-footer">
+                    <div class="row" align="center">
+                        <button type="button" data-dismiss="modal" class="btn-sm" style="background-color: grey  ">
+                            BATAL
+                        </button>
                         <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">LANJUT</button>
-                   </div>
-                </div> 
-            </form>  
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -320,7 +347,7 @@
     @csrf
 </form> --}}
 <div class="modal fade" id="logout">
-    <div class="modal-dialog modal-dialog-centered " >
+    <div class="modal-dialog modal-dialog-centered ">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -335,9 +362,11 @@
                         <!-- Modal footer -->
                     </div>
                     <div class="modal-footer"></div>
-                    <div class="row" align="center" >
-                        <button type="button" data-dismiss="modal"  class="btn-sm" style="background-color: grey  ">BATAL</button>
-                        <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">Lanjut </button>
+                    <div class="row" align="center">
+                        <button type="button" data-dismiss="modal" class="btn-sm" style="background-color: grey  ">
+                            BATAL
+                        </button>
+                        <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">Lanjut</button>
                     </div>
                 </form>
             </div>
