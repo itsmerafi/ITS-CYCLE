@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Pos;
 use App\User;
 use App\Peminjaman;
+use App\Sepeda;
 
 class DashboardController extends Controller
 {
@@ -19,9 +20,10 @@ class DashboardController extends Controller
         //
         $konfirmasi = Peminjaman::where('pinjams_status',1)->count();
         $usercount  = User::where('isAdmin',0)->count();
+        $sepedacount = Sepeda::where('sepedas_is_available','Baik')->count();
         $data = Pos::orderBy('pos_is_active')->get();
 
-        return view('dashboard',compact('data','konfirmasi','usercount'));
+        return view('dashboard',compact('data','konfirmasi','usercount','sepedacount'));
     }
 
     /**
