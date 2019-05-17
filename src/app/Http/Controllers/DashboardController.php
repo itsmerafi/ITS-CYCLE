@@ -18,9 +18,10 @@ class DashboardController extends Controller
     {
         //
         $konfirmasi = Peminjaman::where('pinjams_status',1)->count();
+        $usercount  = User::where('isAdmin',0)->count();
         $data = Pos::orderBy('pos_is_active')->get();
 
-        return view('dashboard',compact('data','konfirmasi'));
+        return view('dashboard',compact('data','konfirmasi','usercount'));
     }
 
     /**

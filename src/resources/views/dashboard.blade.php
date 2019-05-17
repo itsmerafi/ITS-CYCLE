@@ -143,7 +143,7 @@
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Manajemen Pengguna</div>
                       <a href="{{ url('/manage-user')}}">
-                        <div class="h5 mb-0 font-weight-bold text-gray-800 small">Jumlah Pengguna <kbd>50</kbd></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 small">Jumlah Pengguna <kbd>{{$usercount}}</kbd></div>
                       </a>
                     </div>
                   </div>

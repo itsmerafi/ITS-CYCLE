@@ -107,6 +107,24 @@
               <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Data Peminjaman</h1>
+                    @if ( Session::has('error') )
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <strong>{{ Session::get('error') }}</strong>
+                        </div>
+                    @endif
+                    @if ( Session::has('success') )
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <strong>{{ Session::get('success') }}</strong>
+                        </div>
+                    @endif
                 </div>
                 <div class="col-sm-6">
                   <ol class="breadcrumb float-sm-right">

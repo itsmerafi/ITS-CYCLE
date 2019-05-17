@@ -63,7 +63,7 @@ class PeminjamanController extends Controller
                 // $pinjams->pinjams_keteragan = $file->work_orders_id;
                 $pinjams->pinjams_status = 1;
                 $pinjams->save();
-                return redirect('/')->with('success', 'your message,here');  ;
+                return redirect('/data-peminjaman')->with('success', 'Berhasil Meminjam sepeda');  ;
             }else{
                 return redirect('/data-peminjaman')->with('error', 'Hubungi SKK untuk peminjaman sepeda');
             }
