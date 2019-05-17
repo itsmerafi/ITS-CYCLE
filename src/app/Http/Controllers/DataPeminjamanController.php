@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Peminjaman;
+use Carbon\Carbon;
 
 class DataPeminjamanController extends Controller
 {
@@ -76,15 +77,30 @@ class DataPeminjamanController extends Controller
     {
         //
         $data = Peminjaman::all();
-
         $user_id = Auth::id();
         $pinjams = Peminjaman::find($id);
+        $kembali = Carbon::now();
 
-        $pinjams->pinjams_status = 2;
-        $pinjams->petugas_id = $user_id;
-        $pinjams->save();
+        if($request->has('kembali')){
+            
+            $pinjams->pinjams_status = 3;
+            $pinjams->petugas_id = $user_id;
+            $pinjams->pinjams_tanggal_mengembalikan = $kembali;
+            $pinjams->save();
 
-        return view('data-peminjaman',compact('data'));
+            return back()->with(compact('data'));
+        }
+        
+        if($request->has('pinjam-form')){
+
+            $pinjams->pinjams_status = 2;
+            $pinjams->petugas_id = $user_id;
+            $pinjams->save();
+
+            return back()->with(compact('data'));
+        }
+
+        
         // dd($user_id);
     }
 

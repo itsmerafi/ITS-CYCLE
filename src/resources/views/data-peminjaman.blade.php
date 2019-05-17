@@ -107,24 +107,6 @@
               <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Data Peminjaman</h1>
-                    @if ( Session::has('error') )
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                                <span class="sr-only">Close</span>
-                            </button>
-                            <strong>{{ Session::get('error') }}</strong>
-                        </div>
-                    @endif
-                    @if ( Session::has('success') )
-                        <div class="alert alert-success alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                                <span class="sr-only">Close</span>
-                            </button>
-                            <strong>{{ Session::get('success') }}</strong>
-                        </div>
-                    @endif
                 </div>
                 <div class="col-sm-6">
                   <ol class="breadcrumb float-sm-right">
@@ -190,7 +172,7 @@
                         <td style="max-width: 70px; min-width: 70px">
                           @if ($datas->pinjams_status==1)
                             Belum Dikonfirmasi
-                            <button type="button" class="btn-sm btn-primary btn-icon-split" id="pinjam-item" data-item-id="{{$datas->id}}">
+                            <button type="button" class="btn-sm btn-primary btn-icon-split" id="pinjam-item" data-pinjam-id="{{$datas->id}}">
                             {{-- <button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#confirmPinjam"> --}}
                               <span class="icon text-white-50">
                                 <i class="fas fa-check-circle"></i>
@@ -198,8 +180,8 @@
                               <span class="text">Konfirmasi</span>
                             </button>
                           @elseif($datas->pinjams_status==2)
-                            Belum Dikonfirmasi
-                            <button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#confirmKembali">
+                            Di Pinjam
+                            <button type="button" class="btn-sm btn-primary btn-icon-split" id="kembali-item" data-kembali-id="{{$datas->id}}">
                               <span class="icon text-white-50">
                                 <i class="fas fa-check-circle"></i>
                               </span>
@@ -208,19 +190,6 @@
                           @else
                           Telah Dikembalikan
                           @endif
-                          
-                        <!-- macam-macam status:
-                        Telah Dipinjam + Button Konfirmasi
-                        Sedang dipinjam 
-                        Telah Dikembaliikan + Button Konfirmasi
-                        Telah Kembali -->
-{{--                           <button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#confirmKembali">
-                            <span class="icon text-white-50">
-                              <i class="fas fa-check-circle"></i>
-                            </span>
-                            <span class="text">Konfirmasi</span>
-                          </button> --}}
-
                         </td>
                         <td style="max-width: 30px; min-width: 30px">
                           <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> 
@@ -234,7 +203,6 @@
                     </tr>
                     @endforeach
                   </tbody>
-                  
                 </table>
               </div>
             </div>
@@ -297,7 +265,7 @@
         <!-- Page level custom scripts -->
         <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
 
-        <!-- DELETE SCRIPT -->
+        <!-- PINJAM SCRIPT -->
         <script type="text/javascript">
           $(document).ready(function() {
           /**
@@ -319,7 +287,7 @@
             var row = el.closest(".data-row");
 
             // get the data
-            var id = el.data('item-id');
+            var id = el.data('pinjam-id');
 
             // fill the data in the input fields
             $("#users_id").val(id);
@@ -331,11 +299,51 @@
           // on modal hide
           $('#confirmPinjam').on('hide.bs.modal', function() {
             $('.pinjam-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
-            $("#edit-form").trigger("reset");
+            $("#pinjam-form").trigger("reset");
           })
           })
         </script>
-        <!-- END DELETE SCRIPT -->
+        <!-- END PINJAM SCRIPT -->
+
+        <!-- KEMBALI SCRIPT -->
+        <script type="text/javascript">
+          $(document).ready(function() {
+          /**
+           * for showing edit item popup
+           */
+
+          $(document).on('click', "#kembali-item", function() {
+            $(this).addClass('kembali-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+
+            var options = {
+              'backdrop': 'static'
+            };
+            $('#confirmKembali').modal(options)
+          })
+
+          // on modal show
+          $('#confirmKembali').on('show.bs.modal', function() {
+            var el = $(".kembali-item-trigger-clicked"); // See how its usefull right here? 
+            var row = el.closest(".data-row");
+
+            // get the data
+            var id = el.data('kembali-id');
+
+            // fill the data in the input fields
+            $("#users_id").val(id);
+
+            $("#kembali").attr("action","data-peminjaman/"+id);
+
+          })
+
+          // on modal hide
+          $('#confirmKembali').on('hide.bs.modal', function() {
+            $('.kembali-item-trigger-clicked').removeClass('kembali-item-trigger-clicked')
+            $("#kembali").trigger("reset");
+          })
+          })
+        </script>
+        <!-- END KEMBALI SCRIPT -->
 
       </footer>
       <!-- End of Footer -->
@@ -374,7 +382,7 @@
 <div class="modal fade" id="confirmPinjam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form id="pinjam-form" method="post">
+      <form id="pinjam-form" method="post" name="pinjam-form">
         {{-- <input name="_method" type="hidden" value="delete"> --}}
         @csrf
         <input name="_method" type="hidden" value="PATCH">
@@ -387,12 +395,11 @@
         </div>
         <div class="modal-body">Apakah peminjam mengetahui peminjaman ini?</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-          <button id="btn-delete" class="btn btn-danger" class="btn btn-danger" name="btnSubmit" >Ya</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal" >Tidak</button>
+          <button class="btn btn-danger" class="btn btn-danger" id="pinjam-form" name="pinjam-form">Ya</button>
           {{-- <a id="btn-delete" >Hapus</a> --}}
         </div>
       </form>
-      </div>
     </div>
   </div>
 </div>
@@ -402,24 +409,25 @@
 <div class="modal fade" id="confirmKembali" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-check-circle" style="color: blue"></i>Konfirmasi Pengembalian</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Apakah sepeda telah anda terima di POS?</div>
-      <div class="modal-footer">
-        {{-- <form action="{{ route('data-peminjaman.update', $workorders->id)}}" method="POST">
-          @csrf
-          <input name="_method" type="hidden" value="PATCH">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-          <a id="btn-delete" class="btn btn-danger" href="#">Ya</a>
-
-        </form> --}}
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-          <a id="btn-delete" class="btn btn-danger" href="#">Ya</a>
-      </div>
+      <form id="kembali" method="post" name="kembali">
+        {{-- <input name="_method" type="hidden" value="delete"> --}}
+        @csrf
+        <input name="_method" type="hidden" value="PATCH">
+        {{-- <input class="form-control hidden" type="text" name="id" value="{{ $user->id }}" disabled> --}}
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-check-circle" style="color: blue"></i>Konfirmasi Pengembalian</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Apakah sepeda telah anda terima di POS?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal" >Tidak</button>
+          <button class="btn btn-danger" class="btn btn-danger" id="kembali" name="kembali">Ya</button>
+          {{-- <a id="btn-delete" >Hapus</a> --}}
+        </div>
+      </form>  
+      {{-- </div> --}}
     </div>
   </div>
 </div>
