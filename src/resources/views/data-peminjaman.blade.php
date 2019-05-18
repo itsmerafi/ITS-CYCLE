@@ -179,8 +179,10 @@
                               </span>
                               <span class="text">Konfirmasi</span>
                             </button>
+                            @elseif($datas->pinjams_status==2)
+                                Dipinjam
                           @elseif($datas->pinjams_status==3)
-                            Di Pinjam
+                            Dikembalikan, belum konfirmasi
                             <button type="button" class="btn-sm btn-primary btn-icon-split" id="kembali-item" data-kembali-id="{{$datas->id}}">
                               <span class="icon text-white-50">
                                 <i class="fas fa-check-circle"></i>

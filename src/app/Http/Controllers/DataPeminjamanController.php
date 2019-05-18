@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Sepeda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Peminjaman;
@@ -87,6 +88,10 @@ class DataPeminjamanController extends Controller
             $pinjams->petugas_id = $user_id;
             $pinjams->pinjams_tanggal_mengembalikan = $kembali;
             $pinjams->save();
+
+            $updateKetersediaan =Sepeda::find($pinjams->sepedas_id);
+            $updateKetersediaan->sepedas_is_available="Baik";
+            $updateKetersediaan->save();
 
             return back()->with(compact('data'));
         }

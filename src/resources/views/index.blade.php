@@ -139,7 +139,10 @@
                                                     class="home_btn btn btn-primary">KEMBALIKAN SEPEDA
                                             </button>
                                         @elseif($pinjam->pinjams_status == 3)
-                                            <button class="home_btn btn btn-primary">TUNGGU VERIFIKASI
+                                            <button class="home_btn btn btn-primary">TUNGGU VERIFIKASI PENGEMBALIAN
+                                            </button>
+                                        @elseif($pinjam->pinjams_status == 1)
+                                            <button class="home_btn btn btn-primary">TUNGGU VERIFIKASI PEMINJAMAN
                                             </button>
                                         @else
                                             <button data-toggle="modal" data-target="#peminjaman"
