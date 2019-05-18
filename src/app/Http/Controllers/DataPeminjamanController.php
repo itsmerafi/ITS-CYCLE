@@ -83,7 +83,7 @@ class DataPeminjamanController extends Controller
 
         if($request->has('kembali')){
             
-            $pinjams->pinjams_status = 3;
+            $pinjams->pinjams_status = 0;
             $pinjams->petugas_id = $user_id;
             $pinjams->pinjams_tanggal_mengembalikan = $kembali;
             $pinjams->save();
@@ -113,5 +113,9 @@ class DataPeminjamanController extends Controller
     public function destroy($id)
     {
         //
+        $data = Peminjaman::find($id);
+        $data->delete();
+
+        return redirect()->route('data-peminjaman.index');
     }
 }

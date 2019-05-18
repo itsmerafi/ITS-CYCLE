@@ -18,12 +18,13 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $konfirmasi = Peminjaman::where('pinjams_status',1)->count();
+        $pinjam = Peminjaman::where('pinjams_status',1)->count();
+        $kembali = Peminjaman::where('pinjams_status',3)->count();
         $usercount  = User::where('isAdmin',0)->count();
         $sepedacount = Sepeda::where('sepedas_is_available','Baik')->count();
         $data = Pos::orderBy('pos_is_active')->get();
 
-        return view('dashboard',compact('data','konfirmasi','usercount','sepedacount'));
+        return view('dashboard',compact('data','pinjam','usercount','sepedacount','kembali'));
     }
 
     /**

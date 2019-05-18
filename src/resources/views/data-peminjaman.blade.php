@@ -179,7 +179,7 @@
                               </span>
                               <span class="text">Konfirmasi</span>
                             </button>
-                          @elseif($datas->pinjams_status==2)
+                          @elseif($datas->pinjams_status==3)
                             Di Pinjam
                             <button type="button" class="btn-sm btn-primary btn-icon-split" id="kembali-item" data-kembali-id="{{$datas->id}}">
                               <span class="icon text-white-50">
@@ -192,12 +192,14 @@
                           @endif
                         </td>
                         <td style="max-width: 30px; min-width: 30px">
-                          <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> 
+                          <button type="button" class="btn-sm btn-danger" id="delete-item" data-item-id="{{$datas->id}}">
+                          <i class="fas fa-trash"></i>HAPUS</button>
+                          {{-- <button class="btn-sm btn-danger" data-toggle="modal" data-target="#deleteModal"> 
                           <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                             </span>
                             <span class="text">Hapus</span>
-                          </button>
+                          </button> --}}
                         </td>
                       </tr>
                     </tr>
@@ -345,6 +347,46 @@
         </script>
         <!-- END KEMBALI SCRIPT -->
 
+        <!-- DELETE SCRIPT -->
+        <script type="text/javascript">
+          $(document).ready(function() {
+          /**
+           * for showing edit item popup
+           */
+
+          $(document).on('click', "#delete-item", function() {
+            $(this).addClass('delete-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+
+            var options = {
+              'backdrop': 'static'
+            };
+            $('#deleteModal').modal(options)
+          })
+
+          // on modal show
+          $('#deleteModal').on('show.bs.modal', function() {
+            var el = $(".delete-item-trigger-clicked"); // See how its usefull right here? 
+            var row = el.closest(".data-row");
+
+            // get the data
+            var id = el.data('item-id');
+
+            // fill the data in the input fields
+            $("#users_nomor_id").val(id);
+
+            $("#delete-form").attr("action","data-peminjaman/"+id);
+
+          })
+
+          // on modal hide
+          $('#deleteModal').on('hide.bs.modal', function() {
+            $('.delete-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
+            $("#edit-form").trigger("reset");
+          })
+          })
+        </script>
+        <!-- END DELETE SCRIPT -->
+
       </footer>
       <!-- End of Footer -->
 
@@ -358,8 +400,36 @@
 </body>
 <!-- END BODY -->
 
- <!-- MODAL HAPUS -->
+ <!-- MODAL DELETE -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form id="delete-form" method="post">
+        {{-- <input name="_method" type="hidden" value="delete"> --}}
+        @csrf
+        <input name="_method" type="hidden" value="DELETE">
+        {{-- <input class="form-control hidden" type="text" name="id" value="{{ $user->id }}" disabled> --}}
+        <div class="modal-header">
+          {{-- <input type="hidden" id="users_nomor_id" name="users_nomor_id" class="form-control" readonly> --}}
+          <h5 class="modal-title" id="exampleModalLabel">HAPUS</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Apakah anda yakin menghapus catatan ini?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+          <button id="btnSubmit" type="submit" class="btn btn-danger" name="btnSubmit" >HAPUS</button>
+          {{-- <a id="btn-delete" >Hapus</a> --}}
+        </div>
+      </form>
+      
+    </div>
+  </div>
+</div>
+<!-- END MODAL DELETE -->
+
+{{-- <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -375,8 +445,8 @@
       </div>
     </div>
   </div>
-</div>
-<!--END MODAL HAPUS -->
+</div> --}}
+<!-- END MODAL DELETE -->
 
 <!-- MODAL CONFIRM PINJAM -->
 <div class="modal fade" id="confirmPinjam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

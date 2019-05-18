@@ -107,6 +107,14 @@ class PeminjamanController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // dd($id);
+        $pinjams = Peminjaman::find($id);
+        $pinjams->pinjams_status = 3;
+        $pinjams->save();
+
+        // return back()->with(compact('data'));
+        return redirect('/')->with('success', 'Hubungi SKK untuk peminjaman sepeda');
+        // dd($pinjams);
     }
 
     /**

@@ -124,7 +124,15 @@
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Data Peminjaman</div>
                       <a href="{{ url('/data-peminjaman')}}">
-                        <div class="h5 mb-0 font-weight-bold text-gray-800 small">Butuh Konfirmasi <kbd>{{$konfirmasi}}</kbd></div>
+                        <div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800 small">Peminjaman Butuh Konfirmasi</div>
+                          <kbd>{{$pinjam}}</kbd>
+                        </div>
+                        <div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800 small">Pengembalian Butuh Konfirmasi</div>
+                          <kbd>{{$kembali}}</kbd>
+                        </div>
+                        
                       </a>
                     </div>
                   </div>

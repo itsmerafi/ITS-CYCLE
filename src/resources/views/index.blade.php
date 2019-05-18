@@ -137,6 +137,9 @@
                                         <button data-toggle="modal" data-target="#pengembalian"
                                                 class="home_btn btn btn-primary">KEMBALIKAN SEPEDA
                                         </button>
+                                    @elseif($pinjam->pinjams_status == 3)
+                                        <button class="home_btn btn btn-primary">TUNGGU VERIFIKASI
+                                        </button>
                                     @else
                                         <button data-toggle="modal" data-target="#peminjaman"
                                                 class="home_btn btn btn-primary" {{-- onclick="window.location.href='{{url('form-pinjam') }}'" --}}>
@@ -144,19 +147,6 @@
                                         </button>
 
                                     @endif
-
-                                    {{-- button class="btn-sm btn-primary btn-icon-split" data-toggle="modal" data-target="#peminjaman">
-                        <span class="icon text-white-50">
-                          <i class="fas fa-check-circle"></i>
-                        </span>
-                        <span class="text">Konfirmasi</span>
-                      </button> --}}
-                                    {{-- <li  class="nav-item active">
-        <a class="nav-link " href="" data-toggle="modal" data-target="#logout">
-        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-        Logout
-        </a>
-      </li> --}}
 
                                 </div>
                             </div>
@@ -301,6 +291,46 @@
 });
  </script> --}}
 
+
+<div class="modal fade" id="pengembalian">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">PENGEMBALIAN</h4>
+            </div>
+            <!-- Modal body -->
+            <form action="{{ route('peminjaman.update',$pinjam->id) }}" method="post">
+                @csrf
+                <input name="_method" type="hidden" value="PATCH">
+                <div class="modal-body">
+                    <h4 class="modal-title">Apakah Anda yakin?</h4>
+                </div>
+                {{-- <div class="modal-body" style="padding:1rem">
+                    <label>ID SEPEDA</label>
+                    <div>
+                        <div style="width: 26%; height: 50%; float:left;">
+                            <input class="form-control" type="text" disabled="" placeholder="SP">
+                        </div>
+                        <div style="width: 74%; height: 50%; float:right;">
+                            <input class="form-control" type="text" name="id" id="sepeda_id">
+                        </div>
+                         <div style="width: 100%; height: 50%; background-color: red; clear:both">-</div> 
+                    </div>
+                </div> --}}
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <div class="row" align="center">
+                        <button type="button" data-dismiss="modal" class="btn-sm" style="background-color: grey  ">
+                            BATAL
+                        </button>
+                        <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">YA</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <div class="modal fade" id="peminjaman">
     <div class="modal-dialog modal-dialog-centered modal-sm">
