@@ -306,18 +306,6 @@
                 <div class="modal-body">
                     <h4 class="modal-title">Apakah Anda yakin?</h4>
                 </div>
-                {{-- <div class="modal-body" style="padding:1rem">
-                    <label>ID SEPEDA</label>
-                    <div>
-                        <div style="width: 26%; height: 50%; float:left;">
-                            <input class="form-control" type="text" disabled="" placeholder="SP">
-                        </div>
-                        <div style="width: 74%; height: 50%; float:right;">
-                            <input class="form-control" type="text" name="id" id="sepeda_id">
-                        </div>
-                         <div style="width: 100%; height: 50%; background-color: red; clear:both">-</div> 
-                    </div>
-                </div> --}}
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <div class="row" align="center">

@@ -132,7 +132,6 @@
                           <div class="h5 mb-0 font-weight-bold text-gray-800 small">Pengembalian Butuh Konfirmasi</div>
                           <kbd>{{$kembali}}</kbd>
                         </div>
-                        
                       </a>
                     </div>
                   </div>
