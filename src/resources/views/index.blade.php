@@ -133,13 +133,21 @@
                                     <h1>SELAMAT DATANG DI ITS CYCLE</h1>
                                     <p>Website peminjaman sepeda kampus di ITS</p>
                                     {{-- <button class="btn btn-alt-success mr-5 mb-5" data-toggle="modal" data-target="#peminjaman"><i class="fa fa-check mr-5"></i>Selesai</button> --}}
-                                    @if($pinjam->pinjams_status == 2)
-                                        <button data-toggle="modal" data-target="#pengembalian"
-                                                class="home_btn btn btn-primary">KEMBALIKAN SEPEDA
-                                        </button>
-                                    @elseif($pinjam->pinjams_status == 3)
-                                        <button class="home_btn btn btn-primary">TUNGGU VERIFIKASI
-                                        </button>
+                                    @if(!is_null($pinjam))
+                                        @if($pinjam->pinjams_status == 2)
+                                            <button data-toggle="modal" data-target="#pengembalian"
+                                                    class="home_btn btn btn-primary">KEMBALIKAN SEPEDA
+                                            </button>
+                                        @elseif($pinjam->pinjams_status == 3)
+                                            <button class="home_btn btn btn-primary">TUNGGU VERIFIKASI
+                                            </button>
+                                        @else
+                                            <button data-toggle="modal" data-target="#peminjaman"
+                                                    class="home_btn btn btn-primary" {{-- onclick="window.location.href='{{url('form-pinjam') }}'" --}}>
+                                                PINJAM SEKARANG
+                                            </button>
+
+                                        @endif
                                     @else
                                         <button data-toggle="modal" data-target="#peminjaman"
                                                 class="home_btn btn btn-primary" {{-- onclick="window.location.href='{{url('form-pinjam') }}'" --}}>
@@ -291,35 +299,35 @@
 });
  </script> --}}
 
-
-<div class="modal fade" id="pengembalian">
-    <div class="modal-dialog modal-dialog-centered modal-sm">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">PENGEMBALIAN</h4>
-            </div>
-            <!-- Modal body -->
-            <form action="{{ route('peminjaman.update',$pinjam->id) }}" method="post">
-                @csrf
-                <input name="_method" type="hidden" value="PATCH">
-                <div class="modal-body">
-                    <h4 class="modal-title">Apakah Anda yakin?</h4>
+@if(!is_null($pinjam))
+    <div class="modal fade" id="pengembalian">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">PENGEMBALIAN</h4>
                 </div>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <div class="row" align="center">
-                        <button type="button" data-dismiss="modal" class="btn-sm" style="background-color: grey  ">
-                            BATAL
-                        </button>
-                        <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">YA</button>
+                <!-- Modal body -->
+                <form action="{{ route('peminjaman.update',$pinjam->id) }}" method="post">
+                    @csrf
+                    <input name="_method" type="hidden" value="PATCH">
+                    <div class="modal-body">
+                        <h4 class="modal-title">Apakah Anda yakin?</h4>
                     </div>
-                </div>
-            </form>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <div class="row" align="center">
+                            <button type="button" data-dismiss="modal" class="btn-sm" style="background-color: grey  ">
+                                BATAL
+                            </button>
+                            <button type="submit" id="btn-reject" name="submit" style="" class="btn-sm">YA</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
+@endif
 <div class="modal fade" id="peminjaman">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
@@ -355,15 +363,7 @@
         </div>
     </div>
 </div>
-{{-- <a class="dropdown-item" href="{{ route('logout') }}"
-   onclick="event.preventDefault();
-                 document.getElementById('logout-form').submit();">
-    {{ __('Logout') }}
-</a>
 
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    @csrf
-</form> --}}
 <div class="modal fade" id="logout">
     <div class="modal-dialog modal-dialog-centered ">
         <div class="modal-content">

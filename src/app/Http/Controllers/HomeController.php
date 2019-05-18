@@ -31,9 +31,9 @@ class HomeController extends Controller
         $pinjam = Peminjaman::where('users_id',$user->users_nomor_id)
                                 ->orderBy('pinjams_tanggal_meminjam','desc')
                                 ->first();
-        // $statusPinjaman = DB::select(DB::raw("SELECT pinjams_status FROM `pinjams` WHERE users_id ='$user->users_nomor_id'"));
-        // dd($pinjam);
-        // $statusPinjaman = $statusPinjaman[0]->pinjams_status;
+        // $status = DB::select(DB::raw("SELECT pinjams_status FROM `pinjams` WHERE users_id ='$user->users_nomor_id'"));
+        // // dd($status);
+        // $status = $status[0]->pinjams_status;
         // if($statusPinjaman=='')
         // {
         //     $statusPinjaman = 0;
