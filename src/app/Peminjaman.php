@@ -18,7 +18,7 @@ class Peminjaman extends Model
 
     public function userpetugas()
     {
-        return $this->BelongsTo('App\User','users_id');
+        return $this->BelongsTo('App\User','petugas_id');
     }
 
     public function pos()

@@ -44,14 +44,16 @@ class PeminjamanController extends Controller
     public function store(Request $request)
     {
         $query=Sepeda::find($request->sepedas_id);
-        $query = $query->sepedas_is_available;
-//        dd($query->sepedas_is_available00);
-        if($query!='Baik'){
-            return redirect('/data-peminjaman')->with('error', 'Sepeda tidak tersedia');
-        }else {
+        // dd($query);
+        // $query = $query->sepedas_is_available;
+        if($query->sepedas_is_available!='Baik'){
+            // return redirect('/')->with('error', 'Sepeda tidak tersedia');
+            // dd($query);
+        }
+        else {
             $user = User::where('users_nomor_id','=',Auth::id())->first();
 //            dd($user);
-            if($user->isAdmin == 1){
+            if($user->isAdmin == 0){
                 $user_id = Auth::id();
                 $pinjam = Carbon::now();
                 $pinjams = new Peminjaman();
@@ -63,9 +65,11 @@ class PeminjamanController extends Controller
                 // $pinjams->pinjams_keteragan = $file->work_orders_id;
                 $pinjams->pinjams_status = 1;
                 $pinjams->save();
-                return redirect('/data-peminjaman')->with('success', 'Berhasil Meminjam sepeda');  ;
-            }else{
-                return redirect('/data-peminjaman')->with('error', 'Hubungi SKK untuk peminjaman sepeda');
+                return redirect('/')->with('success', 'Berhasil Meminjam sepeda');  ;
+            }
+            else{
+                // dd($query);
+                return redirect('/')->with('error', 'Hubungi SKK untuk peminjaman sepeda');
             }
         }
     }

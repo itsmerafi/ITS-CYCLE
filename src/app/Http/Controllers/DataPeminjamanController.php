@@ -17,7 +17,7 @@ class DataPeminjamanController extends Controller
     public function index()
     {
         //
-        $data = Peminjaman::all();
+        $data = Peminjaman::orderBy('pinjams_status')->get();
         // dd($data);
 
         return view('data-peminjaman',compact('data'));

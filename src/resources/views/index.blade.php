@@ -133,7 +133,7 @@
                                     <h1>SELAMAT DATANG DI ITS CYCLE</h1>
                                     <p>Website peminjaman sepeda kampus di ITS</p>
                                     {{-- <button class="btn btn-alt-success mr-5 mb-5" data-toggle="modal" data-target="#peminjaman"><i class="fa fa-check mr-5"></i>Selesai</button> --}}
-                                    @if($statusPinjaman == 2)
+                                    @if($pinjam->pinjams_status == 2)
                                         <button data-toggle="modal" data-target="#pengembalian"
                                                 class="home_btn btn btn-primary">KEMBALIKAN SEPEDA
                                         </button>

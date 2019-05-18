@@ -45,13 +45,14 @@ Route::middleware(['admin'])->group(function() {
 
 });
 
+Route::get('/', 'HomeController@index')->name('index');
+Route::resource('peminjaman','PeminjamanController');
+Route::get('peminjaman/form','PeminjamanController@form')->name('peminjaman.form');
+Route::post('peminjaman/form', 'PeminjamanController@form')->name('peminjaman.form');
+
 Route::get('/hak', function () {
 	    return view('hak');
 	});
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'HomeController@index')->name('index');
-Route::resource('peminjaman','PeminjamanController');
-Route::get('peminjaman/form','PeminjamanController@form')->name('peminjaman.form');
-Route::post('peminjaman/form', 'PeminjamanController@form')->name('peminjaman.form');
