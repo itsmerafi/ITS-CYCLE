@@ -331,6 +331,8 @@
         </div>
     </div>
 @endif
+
+@if(!is_null($pinjam))
 <div class="modal fade" id="peminjaman">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
@@ -366,6 +368,7 @@
         </div>
     </div>
 </div>
+@endif
 
 <div class="modal fade" id="logout">
     <div class="modal-dialog modal-dialog-centered ">
